@@ -12,6 +12,7 @@ https://github.com/networkengineeryong/Softether-VPN-With-Dnsmasq/blob/main/A.%2
 
 #### 2. 정보 입력
 <br>
+
 ```bash
 서버주소 : smart.apple-box.kr
 계정이름 : wikibox
