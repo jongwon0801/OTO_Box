@@ -9,6 +9,7 @@ https://github.com/networkengineeryong/Softether-VPN-With-Dnsmasq/blob/main/A.%2
 
 <img width="474" alt="image" src="https://github.com/user-attachments/assets/f7b5818c-2bf8-4416-985e-7d3575fde09c" />
 <br>
+
 #### 2. 정보 입력
 
 ```bash
@@ -30,10 +31,12 @@ https://github.com/networkengineeryong/Softether-VPN-With-Dnsmasq/blob/main/A.%2
 
 <img width="479" alt="image" src="https://github.com/user-attachments/assets/d948d525-41e8-4d08-b342-a418d0f09622" />
 <br>
+
 서비스 순서설정
 
 <img width="185" alt="image" src="https://github.com/user-attachments/assets/4e319c26-4323-47e9-985a-0349b813364d" />
 <br>
+
 VPN을 WIFI보다 상위로 올림
 
 <img width="345" alt="image" src="https://github.com/user-attachments/assets/11e21a49-4077-448a-b556-38bfdfbf2a79" />
