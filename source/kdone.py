@@ -1,3 +1,4 @@
+# vnc 접속했을때 있는 파일
 # /root/kdone.py
 
 #!/usr/bin/python3
