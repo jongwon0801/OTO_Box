@@ -22,10 +22,9 @@ wlan : 와이파이 공유기 ip
 ```
 Hardware: BCM2835
 Revision: a020d3 → Raspberry Pi 3 Model B+
-운영체제(OS) 정보
 ```
 
-#### os 정보
+#### 운영체제(OS) 정보
 ```
 OS: Raspbian GNU/Linux 9.13 (Stretch)
 배포판: Raspbian (Debian 기반)
