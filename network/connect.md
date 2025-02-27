@@ -27,6 +27,28 @@ enp0s20f0u1 : inet 118.32.29.247  netmask 255.255.255.128  broadcast 118.32.29.2
 enp2s0 : inet 10.0.205.11  netmask 255.255.0.0  broadcast 10.0.255.255
 
 wlan : 와이파이 공유기 ip
+```
+
+```
+route -n
+
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         118.32.29.254   0.0.0.0         UG    100    0        0 enp0s20f0u1
+10.0.0.0        0.0.0.0         255.255.0.0     U     101    0        0 enp2s0
+10.0.0.0        10.0.0.254      255.0.0.0       UG    101    0        0 enp2s0
+118.32.29.128   0.0.0.0         255.255.255.128 U     100    0        0 enp0s20f0u1
+172.16.0.0      0.0.0.0         255.255.0.0     U     0      0        0 vpn_soft
+172.25.1.0      0.0.0.0         255.255.255.0   U     0      0        0 tap_soft
+
+ip route show
+
+default via 118.32.29.254 dev enp0s20f0u1 proto dhcp metric 100 
+10.0.0.0/16 dev enp2s0 proto kernel scope link src 10.0.205.11 metric 101 
+10.0.0.0/8 via 10.0.0.254 dev enp2s0 proto static metric 101 
+118.32.29.128/25 dev enp0s20f0u1 proto kernel scope link src 118.32.29.247 metric 100 
+172.16.0.0/16 dev vpn_soft proto kernel scope link src 172.16.3.2 
+172.25.1.0/24 dev tap_soft proto kernel scope link src 172.25.1.1 
 
 ```
 
@@ -52,8 +74,10 @@ select ip from applebox;
 | 10.5.205.11 |
 | 10.6.205.11 |
 +-------------+
+```
 
-
+# 라즈베리파이 접속
+```
 # 라즈베리파이 접속
 ssh pi@10.1.205.11
 pw : tmshdnxmfl (스노우트리)
@@ -61,8 +85,18 @@ pw : tmshdnxmfl (스노우트리)
 # 라우팅 테이블 조회
 route -n
 
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.1.0.254      0.0.0.0         UG    202    0        0 eth0
+10.1.0.0        0.0.0.0         255.255.0.0     U     202    0        0 eth0
+172.24.1.0      0.0.0.0         255.255.255.0   U     304    0        0 wlan0
+
+
 ip route show
 
+default via 10.1.0.254 dev eth0 src 10.1.205.11 metric 202 
+10.1.0.0/16 dev eth0 proto kernel scope link src 10.1.205.11 metric 202 
+172.24.1.0/24 dev wlan0 proto kernel scope link src 172.24.1.1 metric 304 
 
 ```
 
