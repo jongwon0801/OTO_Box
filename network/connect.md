@@ -11,10 +11,46 @@ ifconfig
 # 공인 ip
 enp0s20f0u1 : inet 118.32.29.247  netmask 255.255.255.128  broadcast 118.32.29.255
 
-# 라즈베리 ip
+# 내부 네트워크 ip
 enp2s0 : inet 10.0.205.11  netmask 255.255.0.0  broadcast 10.0.255.255
 
 wlan : 와이파이 공유기 ip
+
+```
+
+#### 라즈베리 파이 접속 ip 찾기
+```
+# mysql 접속
+mysql -u root -p or sudo mysql
+pw : tmshdnxmfl (스노우트리)
+
+# 데이터 베이스 선택
+use yellobox;
+
+# 라즈베리 파이 ip 찾기
+select ip from applebox;
+
++-------------+
+| ip          |
++-------------+
+| 10.1.205.11 |
+| 10.2.205.11 |
+| 10.3.205.11 |
+| 10.4.205.11 |
+| 10.5.205.11 |
+| 10.6.205.11 |
++-------------+
+
+
+# 라즈베리파이 접속
+ssh pi@10.1.205.11
+pw : tmshdnxmfl (스노우트리)
+
+# 라우팅 테이블 조회
+route -n
+
+ip route show
+
 
 ```
 
