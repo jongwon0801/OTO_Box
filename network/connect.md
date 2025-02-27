@@ -5,6 +5,14 @@
 ssh -p 2222 root@172.16.3.2
 pw : tmshdnxmfl (스노우트리)
 
+# 방제실 컴퓨터 접속 후 관리자 페이지 접속 가능
+http://172.16.3.2/admin
+
+# 비밀번호 틀리면 db에서 조회
+id : admin
+pw : 1111
+
+
 # 라즈베리 ip 조회
 ifconfig
 
@@ -56,8 +64,20 @@ ip route show
 
 #### 라즈베리파이 하드웨어 정보
 ```
+# 라즈베리파이의 모델(버전)을 확인
+cat /proc/cpuinfo
+
 Hardware: BCM2835
 Revision: a020d3 → Raspberry Pi 3 Model B+
+
+
+# System Information 항목 -> 모델확인 
+sudo raspi-config
+
+
+# 라즈비안 OS 버전을 확인
+lsb_release -a
+
 ```
 
 #### 운영체제(OS) 정보
