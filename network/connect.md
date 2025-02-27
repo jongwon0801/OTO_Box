@@ -17,3 +17,20 @@ enp2s0 : inet 10.0.205.11  netmask 255.255.0.0  broadcast 10.0.255.255
 wlan : 와이파이 공유기 ip
 
 ```
+
+#### 라즈베리파이 하드웨어 정보
+```
+Hardware: BCM2835
+Revision: a020d3 → Raspberry Pi 3 Model B+
+운영체제(OS) 정보
+```
+
+#### os 정보
+```
+OS: Raspbian GNU/Linux 9.13 (Stretch)
+배포판: Raspbian (Debian 기반)
+버전: 9.13 (Stretch, 2017년 출시)
+```
+
+
+
