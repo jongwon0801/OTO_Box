@@ -7,9 +7,6 @@ cd Workspace/newapp/applelocker
 
 #### 열기 (닫기는 자동으로 닫혀서 없음)
 ```
-# applelocker 이동
-cd Workspace/newapp/applelocker
-
 
 # 0인자 : 명령, 1인자 : jumper, 2인자 : serial
 python ctrl.py open 1 1
