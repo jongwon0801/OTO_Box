@@ -6,12 +6,12 @@
 
 #### 1. 라즈베리파이 wifi 로 접속
 
-<img width="452" alt="image" src="https://github.com/user-attachments/assets/0fcd54d1-3e2c-4aa5-98b9-d19d67fd4e15" />
+<img width="452" alt="image" src="https://github.com/user-attachments/assets/8e75fa1b-87da-4747-98ab-9a01f3d9c2bd" />
 
 
+#### 2. IP 주소, 라우터 주소 확인
 
-
-<img width="257" alt="image" src="https://github.com/user-attachments/assets/02cdd9de-bd09-424b-9526-0aeb2374f2ba" />
+<img width="257" alt="image" src="https://github.com/user-attachments/assets/c4a5f3bd-7e99-40b2-bbea-8d07e778f1ad" />
 
 ```
 IP 주소: 맥북이 라우터(공유기)에서 할당받은 내부 네트워크 주소
