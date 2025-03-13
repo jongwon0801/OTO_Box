@@ -16,6 +16,12 @@
 <img width="257" alt="image" src="https://github.com/user-attachments/assets/c4a5f3bd-7e99-40b2-bbea-8d07e778f1ad" />
 
 ```
+IP 주소 : 172.24.1.1
+
+라우터 : 172.24.1.1
+
+
+
 IP 주소: 맥북이 라우터(공유기)에서 할당받은 내부 네트워크 주소
 
 라우터(게이트웨이) 주소: 맥북이 인터넷으로 나갈 때 거치는 공유기 주소
