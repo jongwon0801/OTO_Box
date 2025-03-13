@@ -16,7 +16,6 @@
 <img width="257" alt="image" src="https://github.com/user-attachments/assets/c4a5f3bd-7e99-40b2-bbea-8d07e778f1ad" />
 
 ```
-
 IP 주소 : 172.24.1.181
 
 라우터 : 172.24.1.1
