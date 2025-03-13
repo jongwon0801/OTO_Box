@@ -1,12 +1,12 @@
 ### 열기 닫기
 
-```
+```python
 # applelocker 이동
 cd Workspace/newapp/applelocker
 ```
 
 #### 열기 (닫기는 자동으로 닫혀서 없음)
-```
+```python
 # 0인자 : 명령, 1인자 : jumper, 2인자 : serial
 python ctrl.py open 1 1
 -> 1 컨트롤러의 1번 문을 열어라
@@ -44,7 +44,7 @@ elif sys.argv[1] =='open' :
 
 
 #### status 확인
-```
+```python
 # 모든 사물함의 상태를 확인
 python ctrl.py status
 
