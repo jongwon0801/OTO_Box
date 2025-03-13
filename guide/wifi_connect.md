@@ -27,5 +27,6 @@ IP 주소: 맥북이 라우터(공유기)에서 할당받은 내부 네트워크
 
 ```
 ssh pi@172.24.1.1
+pw : 스노우트리
 ```
 <img width="452" alt="image" src="https://github.com/user-attachments/assets/4e932681-9c95-4ca5-9ae1-afbe8fb6d646" />
