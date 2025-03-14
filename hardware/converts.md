@@ -7,8 +7,6 @@
 <img src="https://github.com/user-attachments/assets/c7aea309-f7f5-4932-ac13-5d85bdf76467" width="300" height="200"/>
 
 
-
-
 📌 용도: 아두이노, 라즈베리파이, ESP32 같은 마이크로컨트롤러와 PC 연결
 
 📌 주요 칩셋: CP2102, CH340, FT232RL 등
@@ -23,8 +21,7 @@
 
 2️⃣ USB to RS485 변환기
 
-<img src="[image_url](https://github.com/user-attachments/assets/f1a718bb-2397-4a5d-a872-16f9f0f1abff)" width="300" height="200"/>
-
+<img src="https://github.com/user-attachments/assets/f1a718bb-2397-4a5d-a872-16f9f0f1abff" width="300" height="200"/>
 
 📌 용도: 산업용 통신(RS485 방식), 모터 컨트롤러, PLC, 센서 연결
 
@@ -38,8 +35,8 @@ VCC(전원) → 빨강 (일부 모델에서는 없을 수도 있음)
 
 3️⃣ USB 전원 공급 케이블 (USB to DC 5V or 터미널 블록용)
 
+<img src="https://github.com/user-attachments/assets/682e8c3c-5ff6-47ef-85ae-42fecedfa3eb" width="300" height="200"/>
 
-![image](https://github.com/user-attachments/assets/682e8c3c-5ff6-47ef-85ae-42fecedfa3eb)
 
 
 📌 용도: 전자기기에 USB 전원(5V) 공급
