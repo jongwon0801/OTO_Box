@@ -4,8 +4,8 @@
 📌 가능한 부품 종류
 1️⃣ USB to TTL(UART) 변환 모듈
 
+<img src="[image_url](https://github.com/user-attachments/assets/c7aea309-f7f5-4932-ac13-5d85bdf76467)" width="300" height="200"/>
 
-![image](https://github.com/user-attachments/assets/c7aea309-f7f5-4932-ac13-5d85bdf76467)
 
 
 
@@ -23,8 +23,7 @@
 
 2️⃣ USB to RS485 변환기
 
-
-![image](https://github.com/user-attachments/assets/f1a718bb-2397-4a5d-a872-16f9f0f1abff)
+<img src="[image_url](https://github.com/user-attachments/assets/f1a718bb-2397-4a5d-a872-16f9f0f1abff)" width="300" height="200"/>
 
 
 📌 용도: 산업용 통신(RS485 방식), 모터 컨트롤러, PLC, 센서 연결
