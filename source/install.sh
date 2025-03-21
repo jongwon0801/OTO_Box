@@ -20,3 +20,10 @@ sudo sed -i "/^ssid=/ s/=.*/=오투오박스-${id}/" /etc/hostapd/hostapd.conf
 cd /home/pi/Workspace/newapp/applelocker
 /home/pi/.virtualenvs/o2obox/bin/python imp1.py "$id"
 /home/pi/.virtualenvs/o2obox/bin/python syncdb_service.py
+
+
+
+
+
+
+
