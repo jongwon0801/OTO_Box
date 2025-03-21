@@ -6,7 +6,7 @@ ssh -p 2222 root@smart.apple-box.kr
 pw : tmshdnxmfl (스노우트리)
 ```
 
-#### DB 접속
+#### 서버 DB 접속
 
 ```
 mysql -u root -p
@@ -20,8 +20,15 @@ pw : 스노우트리
 netstat -tulnp | grep ssh
 ```
 
-#### sshd는 SSH 서버를 실행하는 데몬(Daemon) 프로그램
+- sshd는 SSH 서버를 실행하는 데몬(Daemon) 프로그램
 
+
+#### 특정 포트로 리버스 ssh 접속
+```
+# 11048 접속
+./startssh.sh 11048
+pw : 스노우트리
+```
 
 #### 1. netstat -tulnp
 
