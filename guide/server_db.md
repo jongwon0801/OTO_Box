@@ -20,6 +20,9 @@ pw : 스노우트리
 netstat -tulnp | grep ssh
 ```
 
+#### sshd는 SSH 서버를 실행하는 데몬(Daemon) 프로그램
+
+
 #### 1. netstat -tulnp
 
 목적: 네트워크 연결 상태 및 포트 리스닝 상태를 확인.
@@ -34,6 +37,7 @@ netstat -tulnp | grep ssh
 -n → IP 주소와 포트 번호를 숫자로 표시 (도메인 이름 해석 안 함)
 -p → 해당 포트를 사용하는 프로세스 ID(PID)와 프로세스 이름을 표시
 ```
+
 
 #### 2. ps aux
 
