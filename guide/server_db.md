@@ -6,7 +6,7 @@ ssh -p 2222 root@smart.apple-box.kr
 pw : tmshdnxmfl (스노우트리)
 ```
 
-#### DB 접속
+#### DB 접속
 
 ```
 mysql -u root -p
