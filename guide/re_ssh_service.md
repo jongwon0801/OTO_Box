@@ -27,10 +27,11 @@ grep ssh는 ss 명령의 출력 중에서 "ssh"라는 문자열을 포함하는 
 #### crontab 리버스 ssh 주석 처리
 
 ```
+sudo crontab -e
+
 #@reboot /home/pi/reversesshservice.sh
 
 sudo service cron restart
-
 ```
 
 
