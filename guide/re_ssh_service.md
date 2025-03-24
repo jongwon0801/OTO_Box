@@ -105,7 +105,7 @@ pw : tmshdnxmfl (스노우트리)
 netstat -tulnp | grep ssh
 
 # 재실행한 yid 조회
-netstat -tulnp | grep 11000
+netstat -tulnp | grep 11013
 ```
 
 
