@@ -53,20 +53,22 @@ sudo nano /etc/systemd/system/reversessh.service
 #### reversessh.service
 ```
 [Unit]
-Description=Reverse SSH Service
+Description=Reverse SSH Tunnel Service
 After=network.target
 
 [Service]
-ExecStart=/home/pi/reversessh.sh
+ExecStart=/usr/bin/autossh -M 0 -f -N -T -R 2222:localhost:22 user@remote-server
 Restart=always
+RestartSec=30
 User=pi
-Environment=PATH=/usr/bin:/usr/sbin
+Environment=PATH=/usr/bin:/usr/sbin:/bin
 WorkingDirectory=/home/pi
 StandardOutput=journal
 StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
+
 ```
 
 #### ssh 프로세스 죽이고 데몬 재실행
