@@ -25,3 +25,17 @@ sudo crontab -e : 루트 사용자의 크론 작업을 편집합니다.
 * * * * * sudo hcitool -i hci0 cmd 0x08 0x0008 1E 02 01 06 1A FF 4C 00 02 15 C7 C1 A1 BF BB 00 4C AD 87 04 9F 2D 29
 17 DE D2 00 00 00 00 C8 00 # 매분마다 블루투스 명령 실행
 ```
+
+#### 리버스 ssh 재시작시 자동 연결
+```
+# 주석해제
+#@reboot /home/pi/reversesshservice.sh
+
+# 크론탭 수정 후 재시작
+sudo service cron restart
+or sudo reboot
+```
+
+
+
+
