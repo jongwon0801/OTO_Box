@@ -1,0 +1,15 @@
+# /opt/pprio/script/biz_start
+
+#!/bin/sh
+
+proc=`ps -ef | grep biz_client | grep -v vi |grep -v grep | grep -v sh`
+if [ X"$proc" != X"" ]; then
+        echo "Already Invoked"
+        exit
+fi
+
+#cd ..
+cd /opt/pprio
+java -jar biz_client.jar config/uds &
+
+
