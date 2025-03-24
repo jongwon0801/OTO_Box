@@ -4,6 +4,11 @@ cd /var/log/
 
 # gz 파일 전부 삭제
 sudo rm /var/log/*.gz
+
+# log 파일 전부 삭제
+sudo rm /var/log/*.log
+
+rm -rf는 디렉토리 포함 모든 파일을 삭제할 때 사용
 ```
 
 #### logrotate 설정
