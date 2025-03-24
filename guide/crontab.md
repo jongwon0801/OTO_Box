@@ -36,6 +36,33 @@ sudo service cron restart
 or sudo reboot
 ```
 
+#### 권한 조회
+```
+ls -l /home/pi/reversesshservice.sh
+
+-rwxr-xr-x 1 pi pi 1871 11월 27  2020 /home/pi/reversesshservice.sh
+
+# 권한 없으면 권한 부여
+chmod +x reversesshservice.sh 명령어를 실행하면 소유자(owner), 그룹(group), 다른 사용자(other) 모두에게 실행 권한이 추가
+
+# 리버스 ssh 재실행
+./reversesshservice.sh
+```
+
+#### 서버에서 터널 확인
+```
+# 원격접속
+ssh -p 2222 root@smart.apple-box.kr
+
+pw : tmshdnxmfl (스노우트리)
+
+# listen 중인 포트 확인
+netstat -tulnp | grep ssh
+
+netstat -tulnp | grep ':11000'
+```
+
+
 
 
 
