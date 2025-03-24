@@ -69,7 +69,7 @@ StandardError=journal
 WantedBy=multi-user.target
 ```
 
-#### 데몬 재실행
+#### ssh 프로세스 죽이고 데몬 재실행
 ```
 # 실행중인 프로세스 검색
 pgrep -af "ssh"
@@ -77,7 +77,7 @@ pgrep -af "ssh"
 1930 ssh -o ConnectTimeout=10 -f -N o2obox-tunnel
 
 # 실행중인 리버스 ssh 종료
-kill -9 1930
+sudo kill -9 1930
 
 # 데몬 재실행
 sudo systemctl daemon-reload        # systemd가 새로운 서비스를 인식하도록 함
