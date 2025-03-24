@@ -59,7 +59,8 @@ pw : tmshdnxmfl (스노우트리)
 # listen 중인 포트 확인
 netstat -tulnp | grep ssh
 
-netstat -tulnp | grep ':11000'
+# 재실행한 yid 조회
+netstat -tulnp | grep 11000
 ```
 
 
