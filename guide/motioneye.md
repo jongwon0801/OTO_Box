@@ -14,6 +14,7 @@ rm -rf /var/lib/motioneye/Camera1/*
 
 <img src="https://github.com/user-attachments/assets/1ec2f896-6a39-4e2b-8c02-4e7d581a3338" width="400" height="300" />
 
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/11ef1a66-9d22-435f-9291-887e7a0f2bf8" />
 
 #### 영상 삭제 주기 설정
 
