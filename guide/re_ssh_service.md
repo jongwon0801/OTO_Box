@@ -81,8 +81,12 @@ kill -9 1930
 
 # 데몬 재실행
 sudo systemctl daemon-reload        # systemd가 새로운 서비스를 인식하도록 함
+
 sudo systemctl enable reversessh.service  # 부팅 시 자동 실행 설정
+
 sudo systemctl start reversessh.service   # 서비스 시작
+
+sudo systemctl status reversessh.service  # 서비스 상태 확인
 
 # 서비스 로그는 journalctl을 사용하여 확인
 journalctl -u reversessh.service
