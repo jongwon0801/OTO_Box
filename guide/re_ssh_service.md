@@ -24,6 +24,17 @@ grep ssh는 ss 명령의 출력 중에서 "ssh"라는 문자열을 포함하는 
 일반적으로 SSH 관련 포트(22번 포트)가 열려 있는 소켓 정보를 확인하는 데 사용됩니다.
 ```
 
+#### crontab 리버스 ssh 주석 처리
+
+```
+#@reboot /home/pi/reversesshservice.sh
+
+sudo service cron restart
+
+```
+
+
+
 
 #### 로그 파일 삭제 후 재생성
 
@@ -57,9 +68,6 @@ StandardError=journal
 WantedBy=multi-user.target
 ```
 
-
-
-
 #### 데몬 재실행
 ```
 # 실행중인 프로세스 검색
@@ -79,6 +87,18 @@ sudo systemctl start reversessh.service   # 서비스 시작
 journalctl -u reversessh.service
 ```
 
+#### 네이버 서버에서 listen 확인
+```
+# 원격접속
+ssh -p 2222 root@smart.apple-box.kr
 
+pw : tmshdnxmfl (스노우트리)
+
+# listen 중인 포트 확인
+netstat -tulnp | grep ssh
+
+# 재실행한 yid 조회
+netstat -tulnp | grep 11000
+```
 
 
