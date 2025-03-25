@@ -119,12 +119,14 @@ sudo systemctl status reversessh.service
 - 심볼릭 링크가 올바르게 /lib/systemd/system/reversessh.service를 가리키는지 확인.
 ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
 
+<br>
+
 만약 링크가 잘못되었거나 깨졌다면 수동으로 다시 생성
 sudo ln -s /lib/systemd/system/reversessh.service /etc/systemd/system/multi-user.target.wants/reversessh.service
 <br>
 
 
-✅ /lib/systemd/system/은 "기본 서비스 파일"이 저장되는 곳
+✅ 1. /lib/systemd/system/은 "기본 서비스 파일"이 저장되는 곳
 /lib/systemd/system/ 경로는 패키지 설치 시 기본 서비스 파일을 저장하는 곳
 
 예를 들어, apt install openssh-server 하면 ssh.service가 /lib/systemd/system/에 저장됨
