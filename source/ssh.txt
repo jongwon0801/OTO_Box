@@ -1,0 +1,19 @@
+
+(o2obox) pi@O2OBOX-11010:~/.ssh $ ls
+authorized_keys  config  id_rsa  id_rsa.pub  known_hosts
+
+cat .ssh/authorized_keys
+
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAwT9B+TRXeYZhlVVF9NrCjtW5wZM2wFCuADocV02Le36l///7MIRu5w84hj7vAOj3z2+G+qPeG2mm/
+HMv5wvkrXLVRfZsQmsAOM4SCWJ73uL9UifsRU6mAd72jWJw/XAxfy3w1dO3j8PsXg/
+kShHnMRSC2TRXtRhtRrHce4OIrWiZS3KqbRaJn0FGdlvAMJcbLmButN9VTknkL+yhiHd+1BE+vSRaNfhHwiSTLrpN3swGFyY9lHY
+wE6OmB5QI79z8mHXbJyDr2SA91fPoY7qIgwG4shHiIncErEeDj4HTZ5KgQg2zm3MNIgm2frFvrTNChvbr
+S88e/BsFhxEX6gggJw== applebox_server
+
+
+cat ~/.ssh/id_rsa.pub
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDW2RROhXuKV7jgIom2a5iJ+GHSH7ClPQqxmbtmzyTClJTOPYDqt/J3GS71QOxlG83Hp1O0vUNYnX2NqLoadOLoWP4djLZ/
+luijdJPmpkjL4EyL0kxheoarDHAvod9JOCllLsSZCyIT760GiPickBGhP0oNdijjh31mLM9AI0qut2eATll/Xs4YgqmyDMmlAu/
+9xw+2dyzAUKSvkYFhVJG6MAgwOs+5y9yLD8g22w3aVlWHJEutpeV0/
+Lxowu9IyZ8Q0lyyh+VplAGgY/xSIjT+GKSIX3RLcaFJl52LmyNP45opjLWInUXKaiJeFeE6K8yK+sKbrQSd3C1OvBLtlwET o2obox #10000
