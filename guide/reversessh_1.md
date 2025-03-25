@@ -1,4 +1,4 @@
-#### pgrep -f -x 'ssh -o ConnectTimeout=10 -f -N o2obox-tunnel'
+- pgrep -f -x 'ssh -o ConnectTimeout=10 -f -N o2obox-tunnel'
 ```
 - ssh -o ConnectTimeout=10 -f -N o2obox-tunnel 프로세스가 실행 중인지 확인합니다.
 
