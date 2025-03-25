@@ -88,7 +88,7 @@ ExecStart=/bin/sh /home/pi/reversesshservice.sh
 WantedBy=multi-user.target
 ```
 
-- 기존 enable된 파일 삭제 후 다시 설정
+1️⃣ 기존 enable된 파일 삭제 후 다시 설정
 ```
 # 기존 심볼릭 링크 제거
 sudo rm /etc/systemd/system/multi-user.target.wants/reversessh.service
@@ -98,13 +98,43 @@ sudo systemctl daemon-reload
 
 # 다시 enable 실행
 sudo systemctl enable reversessh.service
+
+sudo systemctl start reversessh.service
+
+sudo systemctl status reversessh.service
 ```
 
+2️⃣ 심볼릭 링크 확인 및 재생성 (만약 직접 수정하고 싶다면)
+
+- 심볼릭 링크가 올바르게 /lib/systemd/system/reversessh.service를 가리키는지 확인.
+ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
+
+만약 링크가 잘못되었거나 깨졌다면 수동으로 다시 생성
+sudo ln -s /lib/systemd/system/reversessh.service /etc/systemd/system/multi-user.target.wants/reversessh.service
 
 
+✅ /lib/systemd/system/은 "기본 서비스 파일"이 저장되는 곳
+/lib/systemd/system/ 경로는 패키지 설치 시 기본 서비스 파일을 저장하는 곳
+
+예를 들어, apt install openssh-server 하면 ssh.service가 /lib/systemd/system/에 저장됨
+
+🔹 즉, 공식 서비스 파일은 /lib/systemd/system/에 위치해야 한다!
+
+ls /lib/systemd/system/ | grep ssh
 
 
-- 시스템 재실행시 reversesshservice.sh 실행 가능 옵션
+✅ 2. /etc/systemd/system/multi-user.target.wants/는 실행될 서비스 목록을 저장하는 곳
+systemctl enable 서비스명을 실행하면
+→ /etc/systemd/system/multi-user.target.wants/에 해당 서비스의 심볼릭 링크가 생성됨
+
+즉, 여기 있는 서비스들은 부팅 시 자동 실행됨
+
+🔹 "이 서비스는 부팅 시 실행해야 해!"라는 걸 systemd가 알도록 하기 위해 심볼릭 링크를 생성하는 것!
+
+ls -l /etc/systemd/system/multi-user.target.wants/
+
+
+#### 시스템 재실행시 reversesshservice.sh 실행 가능 옵션
 
 ```
 /etc/rc.local: 시스템 시작 시 실행될 스크립트를 추가할 수 있습니다.
@@ -115,7 +145,7 @@ crontab: @reboot 명령을 사용하여 시스템 시작 시 실행되도록 설
 ```
 
 
-- /etc/hosts 수정
+#### /etc/hosts 수정
 
 - 시스템에서 특정 호스트 이름을 IP 주소에 매핑할 때 사용되는 /etc/hosts 파일을 수정합니다.
 
