@@ -135,6 +135,7 @@ crontab: @reboot 명령을 사용하여 시스템 시작 시 실행되도록 설
 - 네트워크 설정 파일을 수정한 후 이 명령을 사용하여 변경 사항을 적용합니다.
 
 - 네트워크 연결 상태를 확인
+
 ```
 ping localhost
 ping -c 3 10.100.80.100
@@ -145,4 +146,66 @@ ping -c 3 125.209.200.159
 
 
 
+#### crontab 리버스 ssh 주석 처리
+
+```
+sudo crontab -e
+
+#@reboot /home/pi/reversesshservice.sh
+
+sudo service cron restart
+```
+
+
+#### 로그 파일 삭제 후 재생성
+
+```
+# 기존 로그 파일 삭제 재생성
+rm -f /home/pi/reversessh.log && touch /home/pi/reversessh.log
+
+# 실행 권한 부여
+chmod +x /home/pi/reversessh.sh
+
+# 서비스 파일 생성
+sudo nano /etc/systemd/system/reversessh.service
+```
+
+
+
+#### ssh 프로세스 죽이고 데몬 재실행
+```
+# 실행중인 프로세스 검색
+pgrep -af "ssh"
+
+1930 ssh -o ConnectTimeout=10 -f -N o2obox-tunnel
+
+# 실행중인 리버스 ssh 종료
+sudo kill -9 1930
+
+# 데몬 재실행
+sudo systemctl daemon-reload        # systemd가 새로운 서비스를 인식하도록 함
+
+sudo systemctl enable reversessh.service  # 부팅 시 자동 실행 설정
+
+sudo systemctl start reversessh.service   # 서비스 시작
+
+sudo systemctl status reversessh.service  # 서비스 상태 확인
+
+# 서비스 로그는 journalctl을 사용하여 확인
+journalctl -u reversessh.service
+```
+
+#### 네이버 서버에서 listen 확인
+```
+# 원격접속
+ssh -p 2222 root@smart.apple-box.kr
+
+pw : tmshdnxmfl (스노우트리)
+
+# listen 중인 포트 확인
+netstat -tulnp | grep ssh
+
+# 재실행한 yid 조회
+netstat -tulnp | grep 11013
+```
 
