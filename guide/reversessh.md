@@ -152,6 +152,9 @@ systemctl enable 서비스명을 실행하면
 - ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
 <br>
 
+#### 심볼링 링크 enable/disable 상태를 바로 확인
+sudo systemctl is-enabled reversessh.service
+
 
 #### 시스템 재실행시 reversesshservice.sh 실행 가능 옵션
 
