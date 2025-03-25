@@ -3,16 +3,11 @@ Description=Reverse SSH Service
 After=network.target
 
 [Service]
+Type=simple
 ExecStartPre=/bin/sleep 10
-ExecStart=/bin/bash /home/pi/reversesshservice.sh %i
-User=pi
+ExecStart=/bin/bash /home/pi/reversesshservice.sh
 Restart=always
-RestartSec=30
-Environment=SSH_PORT=30000
-WorkingDirectory=/home/pi
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=reversessh
+User=pi
 
 [Install]
 WantedBy=multi-user.target
