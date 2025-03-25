@@ -148,7 +148,7 @@ systemctl enable 서비스명을 실행하면
 
 🔹 "이 서비스는 부팅 시 실행해야 해!"라는 걸 systemd가 알도록 하기 위해 심볼릭 링크를 생성하는 것!
 
-
+#### 심볼릭 링크인지 확인 앞에 l 붙었으면 심볼릭 링크
 - ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
 <br>
 
