@@ -113,6 +113,7 @@ ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
 sudo ln -s /lib/systemd/system/reversessh.service /etc/systemd/system/multi-user.target.wants/reversessh.service
 
 
+
 ✅ /lib/systemd/system/은 "기본 서비스 파일"이 저장되는 곳
 /lib/systemd/system/ 경로는 패키지 설치 시 기본 서비스 파일을 저장하는 곳
 
@@ -120,7 +121,10 @@ sudo ln -s /lib/systemd/system/reversessh.service /etc/systemd/system/multi-user
 
 🔹 즉, 공식 서비스 파일은 /lib/systemd/system/에 위치해야 한다!
 
-ls /lib/systemd/system/ | grep ssh
+
+- ls /lib/systemd/system/ | grep ssh
+
+
 
 
 ✅ 2. /etc/systemd/system/multi-user.target.wants/는 실행될 서비스 목록을 저장하는 곳
@@ -129,9 +133,12 @@ systemctl enable 서비스명을 실행하면
 
 즉, 여기 있는 서비스들은 부팅 시 자동 실행됨
 
+
 🔹 "이 서비스는 부팅 시 실행해야 해!"라는 걸 systemd가 알도록 하기 위해 심볼릭 링크를 생성하는 것!
 
-ls -l /etc/systemd/system/multi-user.target.wants/
+
+- ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
+
 
 
 #### 시스템 재실행시 reversesshservice.sh 실행 가능 옵션
@@ -143,6 +150,7 @@ ls -l /etc/systemd/system/multi-user.target.wants/
 
 crontab: @reboot 명령을 사용하여 시스템 시작 시 실행되도록 설정할 수 있습니다.
 ```
+
 
 
 #### /etc/hosts 수정
