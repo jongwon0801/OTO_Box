@@ -187,6 +187,10 @@ sudo systemctl daemon-reload        # systemd가 새로운 서비스를 인식�
 
 sudo systemctl enable reversessh.service  # 부팅 시 자동 실행 설정
 
+sudo systemctl disable reversessh.service  # 서비스 비활성화 (부팅 시 자동 실행 해제)
+
+sudo systemctl stop reversessh.service    # 실행 중인 서비스 중지 (즉시 종료)
+
 sudo systemctl start reversessh.service   # 서비스 시작
 
 sudo systemctl status reversessh.service  # 서비스 상태 확인
