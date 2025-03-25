@@ -125,7 +125,7 @@ ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
 sudo ln -s /lib/systemd/system/reversessh.service /etc/systemd/system/multi-user.target.wants/reversessh.service
 <br>
 
-
+<br>
 ✅ 1. /lib/systemd/system/은 "기본 서비스 파일"이 저장되는 곳
 /lib/systemd/system/ 경로는 패키지 설치 시 기본 서비스 파일을 저장하는 곳
 
