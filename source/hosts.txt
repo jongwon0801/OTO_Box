@@ -1,4 +1,4 @@
-# /etc/hosts
+# /etc/hosts 춘의동 세탁소 192.168.0.20
 
 127.0.0.1       localhost
 ::1             localhost ip6-localhost ip6-loopback
@@ -14,3 +14,16 @@ ff02::2         ip6-allrouters
 #10.0.0.2 homeserver
 10.100.80.100 homeserver
 125.209.200.159 server
+
+
+# /etc/hosts 예성202동 11010 
+
+127.0.0.1       localhost
+::1             localhost ip6-localhost ip6-loopback
+ff02::1         ip6-allnodes
+ff02::2         ip6-allrouters
+
+127.0.0.1 O2OBOX-11010
+125.209.200.159 server
+#192.168.0.6 server
+#125.209.200.159 smart.apple-box.kr
