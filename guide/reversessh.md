@@ -4,7 +4,7 @@
 
 - pgrep는 지정된 프로세스를 찾아 PID를 반환합니다.
 ```
-
+<br>
 - pgrep -af "ssh"
 - ssh 프로세스를 찾아 그 PID를 출력
 
@@ -18,12 +18,14 @@
 pi        1840  0.0  0.0   6064   576 pts/0    S+   10:43   0:00 grep --color=auto ssh -o ConnectTimeout=10 -f -N o2obox-tunnel
 root     23685  0.0  0.1  10616  1740 ?        Ss   06:51   0:00 ssh -o ConnectTimeout=10 -f -N o2obox-tunnel
 ```
+<br>
 
 - sudo cat /etc/systemd/system/* | grep "o2obox-tunnel"
 ```
 - 시스템의 모든 서비스 파일 중 o2obox-tunnel을 포함하는 파일을 찾습니다.
 - cat을 통해 파일을 읽고 grep으로 o2obox-tunnel 문자열을 검색합니다.
 ```
+<br>
 
 - systemctl list-units --type=service | grep ssh
 ```
@@ -34,6 +36,7 @@ root     23685  0.0  0.1  10616  1740 ?        Ss   06:51   0:00 ssh -o ConnectT
   reversessh.service                                          loaded active running Reverse SSH Service                                               
   ssh.service                                                 loaded active running OpenBSD Secure Shell server  
 ```
+<br>
 
 - systemctl show -p FragmentPath reversessh.service
 ```
@@ -44,6 +47,7 @@ root     23685  0.0  0.1  10616  1740 ?        Ss   06:51   0:00 ssh -o ConnectT
 FragmentPath=/lib/systemd/system/reversessh.service
 ```
 
+<br>
 
 - sudo find /etc/systemd /lib/systemd /usr/lib/systemd -name "reversessh.service"
 ```
@@ -55,10 +59,14 @@ FragmentPath=/lib/systemd/system/reversessh.service
 /lib/systemd/system/reversessh.service
 ```
 
+<br>
+
 - systemctl status reversessh.service
 ```
 - reversessh.service의 현재 상태를 확인합니다.
 ```
+
+<br>
 
 - ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
 ```
@@ -74,6 +82,7 @@ lrwxrwxrwx 1 root root 38  3월 12  2020 /etc/systemd/system/multi-user.target.w
 - reversessh.service의 실제 시스템 서비스 파일을 수정합니다.
 
 - 이 파일에서 서비스 실행 명령과 설정을 변경할 수 있습니다.
+<br>
 
 ```
 [Unit]
@@ -87,6 +96,7 @@ ExecStart=/bin/sh /home/pi/reversesshservice.sh
 [Install]
 WantedBy=multi-user.target
 ```
+<br>
 
 1️⃣ 기존 enable된 파일 삭제 후 다시 설정
 ```
@@ -103,7 +113,7 @@ sudo systemctl start reversessh.service
 
 sudo systemctl status reversessh.service
 ```
-
+<br>
 2️⃣ 심볼릭 링크 확인 및 재생성 (만약 직접 수정하고 싶다면)
 
 - 심볼릭 링크가 올바르게 /lib/systemd/system/reversessh.service를 가리키는지 확인.
