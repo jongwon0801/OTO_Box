@@ -111,7 +111,7 @@ ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
 
 만약 링크가 잘못되었거나 깨졌다면 수동으로 다시 생성
 sudo ln -s /lib/systemd/system/reversessh.service /etc/systemd/system/multi-user.target.wants/reversessh.service
-
+<br>
 
 
 ✅ /lib/systemd/system/은 "기본 서비스 파일"이 저장되는 곳
@@ -123,7 +123,7 @@ sudo ln -s /lib/systemd/system/reversessh.service /etc/systemd/system/multi-user
 
 
 - ls /lib/systemd/system/ | grep ssh
-
+<br>
 
 
 
@@ -138,7 +138,7 @@ systemctl enable 서비스명을 실행하면
 
 
 - ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
-
+<br>
 
 
 #### 시스템 재실행시 reversesshservice.sh 실행 가능 옵션
