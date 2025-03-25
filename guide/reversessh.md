@@ -1,15 +1,19 @@
 - pgrep -f -x 'ssh -o ConnectTimeout=10 -f -N o2obox-tunnel'
+
 ```
 - ssh -o ConnectTimeout=10 -f -N o2obox-tunnel 프로세스가 실행 중인지 확인합니다.
 
 - pgrep는 지정된 프로세스를 찾아 PID를 반환합니다.
 ```
 <br>
+
 - pgrep -af "ssh"
+
 - ssh 프로세스를 찾아 그 PID를 출력
 
 
 - ps -aux | grep "ssh -o ConnectTimeout=10 -f -N o2obox-tunnel"
+
 ```
 - ssh 명령이 실행 중인 모든 프로세스를 확인하고, 해당 프로세스가 포함된 정보를 출력합니다.
 
