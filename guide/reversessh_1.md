@@ -5,11 +5,11 @@
 - pgrep는 지정된 프로세스를 찾아 PID를 반환합니다.
 ```
 
-#### pgrep -af "ssh"
+- pgrep -af "ssh"
 - ssh 프로세스를 찾아 그 PID를 출력
 
 
-#### ps -aux | grep "ssh -o ConnectTimeout=10 -f -N o2obox-tunnel"
+- ps -aux | grep "ssh -o ConnectTimeout=10 -f -N o2obox-tunnel"
 ```
 - ssh 명령이 실행 중인 모든 프로세스를 확인하고, 해당 프로세스가 포함된 정보를 출력합니다.
 
@@ -19,13 +19,13 @@ pi        1840  0.0  0.0   6064   576 pts/0    S+   10:43   0:00 grep --color=au
 root     23685  0.0  0.1  10616  1740 ?        Ss   06:51   0:00 ssh -o ConnectTimeout=10 -f -N o2obox-tunnel
 ```
 
-#### sudo cat /etc/systemd/system/* | grep "o2obox-tunnel"
+- sudo cat /etc/systemd/system/* | grep "o2obox-tunnel"
 ```
 - 시스템의 모든 서비스 파일 중 o2obox-tunnel을 포함하는 파일을 찾습니다.
 - cat을 통해 파일을 읽고 grep으로 o2obox-tunnel 문자열을 검색합니다.
 ```
 
-#### systemctl list-units --type=service | grep ssh
+- systemctl list-units --type=service | grep ssh
 ```
 - 현재 실행 중인 서비스 중 ssh 관련 서비스를 목록화하고 출력합니다.
 
@@ -35,7 +35,7 @@ root     23685  0.0  0.1  10616  1740 ?        Ss   06:51   0:00 ssh -o ConnectT
   ssh.service                                                 loaded active running OpenBSD Secure Shell server  
 ```
 
-#### systemctl show -p FragmentPath reversessh.service
+- systemctl show -p FragmentPath reversessh.service
 ```
 - reversessh.service 서비스의 경로(FragmentPath)를 보여줍니다.
 
@@ -45,7 +45,7 @@ FragmentPath=/lib/systemd/system/reversessh.service
 ```
 
 
-#### sudo find /etc/systemd /lib/systemd /usr/lib/systemd -name "reversessh.service"
+- sudo find /etc/systemd /lib/systemd /usr/lib/systemd -name "reversessh.service"
 ```
 - 시스템의 특정 디렉토리에서 reversessh.service 파일을 검색합니다.
 
@@ -55,12 +55,12 @@ FragmentPath=/lib/systemd/system/reversessh.service
 /lib/systemd/system/reversessh.service
 ```
 
-#### systemctl status reversessh.service
+- systemctl status reversessh.service
 ```
 - reversessh.service의 현재 상태를 확인합니다.
 ```
 
-#### ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
+- ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
 ```
 - reversessh.service가 multi-user.target에서 활성화되어 있는지 확인합니다.
 
@@ -69,7 +69,7 @@ FragmentPath=/lib/systemd/system/reversessh.service
 lrwxrwxrwx 1 root root 38  3월 12  2020 /etc/systemd/system/multi-user.target.wants/reversessh.service -> /lib/systemd/system/reversessh.service
 ```
 
-#### sudo nano /etc/systemd/system/multi-user.target.wants/reversessh.service
+- sudo nano /etc/systemd/system/multi-user.target.wants/reversessh.service
 
 - reversessh.service가 자동으로 시작되도록 설정된 systemd 서비스 파일을 수정합니다.
 
@@ -90,7 +90,7 @@ WantedBy=multi-user.target
 ```
 
 
-#### sudo nano /lib/systemd/system/reversessh.service
+- sudo nano /lib/systemd/system/reversessh.service
 
 - reversessh.service의 실제 시스템 서비스 파일을 수정합니다.
 
@@ -110,7 +110,7 @@ WantedBy=multi-user.target
 ```
 
 
-#### 시스템 재실행시 reversesshservice.sh 실행 가능 옵션
+- 시스템 재실행시 reversesshservice.sh 실행 가능 옵션
 
 ```
 /etc/rc.local: 시스템 시작 시 실행될 스크립트를 추가할 수 있습니다.
@@ -121,27 +121,27 @@ crontab: @reboot 명령을 사용하여 시스템 시작 시 실행되도록 설
 ```
 
 
-#### /etc/hosts 수정
+- /etc/hosts 수정
 
 - 시스템에서 특정 호스트 이름을 IP 주소에 매핑할 때 사용되는 /etc/hosts 파일을 수정합니다.
 
 - 이 파일을 수정하면 도메인 이름을 로컬에서 특정 IP로 직접 매핑할 수 있습니다.
 
 
-#### sudo systemctl restart networking
+- sudo systemctl restart networking
 
 - 네트워크 서비스를 재시작하여 네트워크 설정을 적용합니다.
 
 - 네트워크 설정 파일을 수정한 후 이 명령을 사용하여 변경 사항을 적용합니다.
 
-#### 네트워크 연결 상태를 확인
+- 네트워크 연결 상태를 확인
 ```
 ping localhost
 ping -c 3 10.100.80.100
 ping -c 3 125.209.200.159
 ```
-#### -c 3은 3번만 ping을 보내는 옵션
-#### localhost는 자신을 나타내는 IP 주소인 127.0.0.1
+- -c 3은 3번만 ping을 보내는 옵션
+- localhost는 자신을 나타내는 IP 주소인 127.0.0.1
 
 
 
