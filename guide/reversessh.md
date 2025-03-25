@@ -69,27 +69,6 @@ FragmentPath=/lib/systemd/system/reversessh.service
 lrwxrwxrwx 1 root root 38  3월 12  2020 /etc/systemd/system/multi-user.target.wants/reversessh.service -> /lib/systemd/system/reversessh.service
 ```
 
-- sudo nano /etc/systemd/system/multi-user.target.wants/reversessh.service
-
-- reversessh.service가 자동으로 시작되도록 설정된 systemd 서비스 파일을 수정합니다.
-
-- 이 파일은 시스템 부팅 시 서비스가 시작되도록 설정됩니다.
-
-
-```
-[Unit]
-Description=Reverse SSH Service
-After=network.target
-
-[Service]
-Type=idle
-ExecStart=/bin/sh /home/pi/reversesshservice.sh
-
-[Install]
-WantedBy=multi-user.target
-```
-
-
 - sudo nano /lib/systemd/system/reversessh.service
 
 - reversessh.service의 실제 시스템 서비스 파일을 수정합니다.
@@ -108,6 +87,21 @@ ExecStart=/bin/sh /home/pi/reversesshservice.sh
 [Install]
 WantedBy=multi-user.target
 ```
+
+- 기존 enable된 파일 삭제 후 다시 설정
+```
+# 기존 심볼릭 링크 제거
+sudo rm /etc/systemd/system/multi-user.target.wants/reversessh.service
+
+# daemon-reload로 systemd 캐시 갱신
+sudo systemctl daemon-reload
+
+# 다시 enable 실행
+sudo systemctl enable reversessh.service
+```
+
+
+
 
 
 - 시스템 재실행시 reversesshservice.sh 실행 가능 옵션
