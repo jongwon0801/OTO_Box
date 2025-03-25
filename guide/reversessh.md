@@ -9,8 +9,9 @@
 
 - pgrep -af "ssh"
 
-- ssh 프로세스를 찾아 그 PID를 출력
-
+```
+ssh 프로세스를 찾아 그 PID를 출력
+```
 
 - ps -aux | grep "ssh -o ConnectTimeout=10 -f -N o2obox-tunnel"
 
