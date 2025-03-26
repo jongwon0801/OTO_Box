@@ -26,13 +26,6 @@ root     23685  0.0  0.1  10616  1740 ?        Ss   06:51   0:00 ssh -o ConnectT
 ```
 <br>
 
-- sudo cat /etc/systemd/system/* | grep "o2obox-tunnel"
-```
-- 시스템의 모든 서비스 파일 중 o2obox-tunnel을 포함하는 파일을 찾습니다.
-- cat을 통해 파일을 읽고 grep으로 o2obox-tunnel 문자열을 검색합니다.
-```
-<br>
-
 - systemctl list-units --type=service | grep ssh
 ```
 - 현재 실행 중인 서비스 중 ssh 관련 서비스를 목록화하고 출력합니다.
