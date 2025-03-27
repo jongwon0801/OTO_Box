@@ -66,8 +66,6 @@ hostname 명령어 실행 시 이 값을 참조함.
 부팅 시 이 값을 읽어서 시스템의 호스트명을 설정함.
 ```
 
-<br>
-
 ```
 $ cat /etc/hostname
 raspberrypi
