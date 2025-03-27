@@ -10,7 +10,6 @@
 | `-ge`  | 크거나 같음 (`>=`) | **greater than or equal** | `[ "$a" -ge "$b" ]` | ❌ (False) |
 
 
-설명:
 ```
 -eq: 두 값이 같은지 비교합니다 (equal)
 
