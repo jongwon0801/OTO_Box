@@ -3,11 +3,17 @@
 ```
 echo "kill -9 \$(lsof -ti tcp:$yid)" | su - pi
 ```
+
 여기서 |는 두 명령어 간에 데이터를 전달하는 역할을 합니다.
+
+<br>
+
 ```
 echo "kill -9 \$(lsof -ti tcp:$yid)":
 ```
 echo는 문자열을 출력하는 명령입니다. 여기서는 kill -9 $(lsof -ti tcp:$yid)라는 명령어 문자열을 출력합니다.
+
+<br>
 
 lsof -ti tcp:$yid 명령은 특정 포트를 사용 중인 프로세스를 찾고, 그 프로세스를 종료하는 kill 명령을 생성합니다.
 ```
