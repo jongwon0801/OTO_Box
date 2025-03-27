@@ -16,6 +16,9 @@ raspberrypi
 ```
 server는 특정한 명령어가 아니라, /etc/hosts 또는 DNS 설정에서 정의된 호스트명을 의미합니다.
 ```
+
+<br>
+
 예를 들어, /etc/hosts 파일에 다음과 같이 정의되어 있다면
 
 ```
@@ -29,6 +32,8 @@ PING server (10.100.80.100) 56(84) bytes of data.
 ```
 
 #### 즉, 별도로 import할 필요 없이 시스템이 알아서 /etc/hosts나 DNS에서 해당 호스트명을 찾아 IP로 변환합니다.
+
+<br>
 
 #### 결론
 ```
