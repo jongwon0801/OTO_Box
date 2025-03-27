@@ -8,11 +8,20 @@ pw : tmshdnxmfl (스노우트리)
 
 #### 서버 DB 접속
 
-```
-mysql -u root -p
+sudo mysql -u root -p
 
-pw : 스노우트리
+sudo mysql
+
 ```
+sudo: root 권한으로 실행
+
+mysql: MySQL 명령어 클라이언트
+
+-u root: MySQL에 root 사용자로 접속
+
+-p: 비밀번호 입력을 요구
+```
+
 
 #### 현재 LISTEN 중인 SSH 포트 확인
 
