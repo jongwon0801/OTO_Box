@@ -19,8 +19,6 @@ raspberrypi
 server는 특정한 명령어가 아니라, /etc/hosts 또는 DNS 설정에서 정의된 호스트명을 의미합니다.
 ```
 
-<br>
-
 예를 들어, /etc/hosts 파일에 다음과 같이 정의되어 있다면
 
 ```
