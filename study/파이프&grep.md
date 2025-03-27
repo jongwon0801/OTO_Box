@@ -17,6 +17,7 @@ lsof -ti tcp:$yid 명령은 특정 포트를 사용 중인 프로세스를 찾�
 
 즉, echo로 생성된 명령어(kill -9 $(lsof -ti tcp:$yid))가 su - pi 명령어에 전달되고, su - pi는 해당 명령어를 pi 사용자로 실행합니다.
 
+<br>
 
 #### 파이프의 동작
 ```
@@ -51,7 +52,8 @@ echo "Hello, World!" | grep "Hello"
 <br>
 
 ```
-grep은 주어진 문자열 "Hello"가 포함된 모든 라인을 출력하기 때문에, "Hello, World!"는 "Hello"라는 단어를 포함하므로 그 전체 라인이 출력됩니다.
+grep은 주어진 문자열 "Hello"가 포함된 모든 라인을 출력하기 때문에
+"Hello, World!"는 "Hello"라는 단어를 포함하므로 그 전체 라인이 출력됩니다.
 ```
 
 <br>
