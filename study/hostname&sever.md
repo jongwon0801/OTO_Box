@@ -6,6 +6,9 @@ hostname 명령어는 별도의 import 없이 실행할 수 있으며, 현재 �
 
 이는 /etc/hostname 파일이나 네트워크 설정에서 가져옵니다.
 ```
+
+<br>
+
 ```
 $ hostname
 raspberrypi
@@ -31,6 +34,8 @@ server는 특정한 명령어가 아니라, /etc/hosts 또는 DNS 설정에서 �
 $ ping server
 PING server (10.100.80.100) 56(84) bytes of data.
 ```
+
+<br>
 
 #### 즉, 별도로 import할 필요 없이 시스템이 알아서 /etc/hosts나 DNS에서 해당 호스트명을 찾아 IP로 변환합니다.
 
@@ -61,6 +66,8 @@ hostname 명령어 실행 시 이 값을 참조함.
 부팅 시 이 값을 읽어서 시스템의 호스트명을 설정함.
 ```
 
+<br>
+
 ```
 $ cat /etc/hostname
 raspberrypi
@@ -86,6 +93,9 @@ raspberrypi
 
 ping server 같은 명령을 실행할 때, /etc/hosts에 해당 매핑이 있으면 해당 IP로 변환됨.
 ```
+
+<br>
+
 #### 예시 (/etc/hosts 내용)
 
 ```
