@@ -9,6 +9,7 @@
 | `-gt`  | 큼 (`>`)           | **greater than**      | `[ "$a" -gt "$b" ]`     | ❌ (False) |
 | `-ge`  | 크거나 같음 (`>=`) | **greater than or equal** | `[ "$a" -ge "$b" ]` | ❌ (False) |
 
+<br>
 
 ```
 -eq: 두 값이 같은지 비교합니다 (equal)
