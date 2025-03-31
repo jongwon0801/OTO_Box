@@ -1,0 +1,129 @@
+#### 1. 필수 패키지 설치
+
+ 라즈베리파이가 이더넷을 통해 인터넷에 연결되어 있고, Wi-Fi (wlan0) 인터페이스를 액세스 포인트로 설정하여 다른 장치들이 인터넷을 사용할 수 있도록 합니다.
+
+ 먼저, 액세스 포인트를 설정하려면 필요한 패키지인 hostapd와 dnsmasq를 설치합니다.
+
+```
+sudo apt update
+sudo apt install hostapd dnsmasq
+```
+
+#### 2. hostapd 설정 (액세스 포인트 설정)
+
+hostapd 설정 파일 만들기
+
+hostapd를 사용하여 라즈베리파이를 액세스 포인트로 만들기 위해 설정 파일을 작성합니다.
+
+```
+sudo nano /etc/hostapd/hostapd.conf
+```
+
+```
+interface=wlan0
+driver=nl80211
+ssid=오투오박스-11010  # Wi-Fi 네트워크 이름
+hw_mode=g
+channel=6  # 사용할 채널
+wmm_enabled=0
+macaddr_acl=0
+auth_algs=1
+ignore_broadcast_ssid=0
+wpa=2        # WPA2 보안 사용
+wpa_passphrase=tmshdnxmfl    # Wi-Fi 비밀번호
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+```
+
+ssid는 액세스 포인트의 이름입니다. 원하는 네트워크 이름으로 변경합니다.
+
+wpa_passphrase는 Wi-Fi의 비밀번호입니다.
+
+channel은 Wi-Fi 채널을 설정합니다. 일반적으로 1, 6, 11 채널을 추천합니다.
+
+
+2. hostapd 설정 파일 적용
+
+hostapd가 이 설정 파일을 사용하도록 /etc/default/hostapd 파일을 수정합니다.
+
+```
+sudo nano /etc/default/hostapd
+
+DAEMON_CONF="/etc/hostapd/hostapd.conf"
+```
+
+3. dnsmasq 설정 (DHCP 서버 설정)
+
+dnsmasq는 IP 주소를 클라이언트에게 할당하는 DHCP 서버 역할을 합니다.
+
+dnsmasq 설정 파일 수정
+
+```
+sudo nano /etc/dnsmasq.conf
+
+interface=wlan0
+bind-dynamic
+domain-needed
+bogus-priv
+dhcp-range=172.24.1.150,172.24.1.200,255.255.255.0,12h
+```
+
+4. 네트워크 설정 (라우팅 및 NAT 설정)
+
+4-1. IP 포워딩 활성화
+
+sysctl 명령어로 IP 포워딩을 활성화합니다.
+```
+sudo sysctl -w net.ipv4.ip_forward=1
+```
+이 설정을 영구적으로 유지하려면 /etc/sysctl.conf 파일을 열고 아래의 줄을 추가합니다:
+```
+sudo nano /etc/sysctl.conf
+```
+파일의 끝에 다음 라인을 추가합니다:
+```
+net.ipv4.ip_forward=1
+```
+<img width="444" alt="image" src="https://github.com/user-attachments/assets/4069a9a4-769a-4851-861e-481ea0f55b9c" />
+
+
+4-2 iptables를 통한 NAT 설정
+
+iptables 명령어로 eth0를 통한 인터넷 공유를 설정합니다.
+```
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+```
+이 규칙은 eth0을 통해 나가는 트래픽에 대해 마스커레이드(NAT)를 수행합니다. 이 설정을 영구적으로 저장하려면 다음 명령어를 실행합니다:
+```
+sudo iptables-save > /etc/iptables/rules.v4
+```
+
+5. 서비스 시작 및 자동 시작 설정
+
+5-1 서비스 시작
+
+hostapd와 dnsmasq 서비스를 시작하여 액세스 포인트를 활성화합니다.
+
+```
+sudo systemctl start hostapd
+sudo systemctl start dnsmasq
+```
+
+5-2 서비스 자동 시작 설정
+
+시스템 부팅 시 자동으로 hostapd와 dnsmasq 서비스가 시작되도록 설정합니다.
+```
+sudo systemctl enable hostapd
+sudo systemctl enable dnsmasq
+```
+
+6. 라즈베리파이 인터넷 공유 확인
+
+이제 라즈베리파이가 액세스 포인트 모드로 작동하며, 다른 장치에서 Wi-Fi 목록을 확인하고 설정한 ssid를 찾아서 연결할 수 있습니다.
+이때 Wi-Fi 연결 후, 장치가 인터넷을 사용할 수 있어야 합니다
+
+
+
+
+
