@@ -6,29 +6,33 @@ log() {
 
 # 포트 번호를 계산하는 함수
 getPort() {
-    port=$(( $(hostname | awk -F"-" '{print $NF}') % 65535 ))
-    echo $port
+    echo "11040"  # 고정된 포트 번호
 }
 
 serverProcessKill() {
-    port=$(getPort)
-    log "사용할 포트: $port"
-    
-    # 백그라운드에서 실행 중인 SSH 프로세스를 찾기
-    pid=$(pgrep -f "ssh -T -o ConnectTimeout=10 -f -N -R 127.0.0.1:$port:localhost:22 -p 2222")
-    
+    port=$(getPort)  # 포트 번호를 가져옵니다.
+    log "현재 포트: $port"
+
+    # ps 명령어로 해당 포트를 사용하는 SSH 프로세스를 찾습니다.
+    pid=$(ps aux | grep "$port" | grep "ssh" | grep -v "grep" | awk '{print $2}')
+
     if [ -n "$pid" ]; then
         log "프로세스 $pid 종료 중..."
-        kill -9 "$pid"
+        kill -9 "$pid"  # 해당 프로세스를 종료합니다.
     else
-        log "SSH 터널 프로세스가 실행되지 않았습니다."
+        log "포트 $port를 사용하는 SSH 프로세스가 없습니다."
     fi
 }
 
 startSsh() {
     port=$(getPort)
     log "리버스 SSH 연결을 시작합니다..."
-    ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -o ConnectTimeout=10 -f -N -R 127.0.0.1:$port:localhost:22 -p 2222 root@o2obox-tunnel
+
+    # 먼저 기존 SSH 프로세스를 종료
+    serverProcessKill
+
+    # SSH 연결 시작
+    ssh -i /home/pi/.ssh/id_rsa -o StrictHostKeyChecking=no -o ConnectTimeout=10 -f -N -R 127.0.0.1:$port:localhost:22 -p 2222 root@o2obox-tunnel
     if [ $? -eq 0 ]; then
         log "리버스 SSH 연결이 성공적으로 시작되었습니다."
     else
@@ -38,7 +42,7 @@ startSsh() {
 
 getSshProcess() {
     port=$(getPort)
-    pid=$(pgrep -f "ssh -T -o ConnectTimeout=10 -f -N -R 127.0.0.1:$port:localhost:22 -p 2222")
+    pid=$(ps aux | grep "$port" | grep "ssh" | grep -v "grep" | awk '{print $2}')
     if [ -z "$pid" ]; then
         log "SSH 프로세스가 실행되지 않았습니다."
     else
@@ -48,7 +52,7 @@ getSshProcess() {
 
 stopSsh() {
     port=$(getPort)
-    pid=$(pgrep -f "ssh -T -o ConnectTimeout=10 -f -N -R 127.0.0.1:$port:localhost:22 -p 2222")
+    pid=$(ps aux | grep "$port" | grep "ssh" | grep -v "grep" | awk '{print $2}')
     if [ -n "$pid" ]; then
         log "SSH 프로세스 PID $pid 를 종료 중..."
         kill -15 "$pid" || kill -9 "$pid"
