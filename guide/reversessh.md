@@ -239,6 +239,28 @@ sudo ssh -i /root/.ssh/id_rsa -p 2222 tunnel.o2obox.kr
 sudo systemctl restart reversessh.service
 ```
 
+#### lsof 패키지 없을 경우 severkill 로직 ss로 수정
+```
+serverProcessKill(){
+    export IFS="-"
+    sentence="$(hostname)"
+
+    for word in $sentence; do
+      yid="$word"
+    done
+
+    # ss 명령어를 사용하여 TCP 포트에서 프로세스 ID를 찾고 종료합니다.
+    pid=$(ss -tuln | grep ":$yid" | awk '{print $6}' | cut -d',' -f2)
+    
+    if [ -n "$pid" ]; then
+        echo "kill -9 $pid" | su - pi && ssh -T -p 2222 root@server
+    else
+        echo "No process found for port $yid"
+    fi
+}
+```
+
+
 ---
 #### 시스템 재실행시 reversesshservice.sh 실행 가능 옵션
 
