@@ -222,12 +222,21 @@ sudo ls -l /root/.ssh/
 
 #### 5. 안되면 기존 키 삭제 후 변경
 ```
+# smart.apple-box.kr:2222 기존 root SSH 키를 삭제
 sudo ssh-keygen -f "/root/.ssh/known_hosts" -R "[smart.apple-box.kr]:2222"
+
+# tunnel.o2obox.kr:2222의 기존 root SSH 키를 삭제
+sudo ssh-keygen -f "/root/.ssh/known_hosts" -R "[tunnel.o2obox.kr]:2222"
 ```
 
-#### 6. 다시 접속시도
+#### 6. 호스트 키를 다시 등록하기 위해 직접 SSH 접속을 시도
 ```
 sudo ssh -i /root/.ssh/id_rsa -p 2222 smart.apple-box.kr
+
+sudo ssh -i /root/.ssh/id_rsa -p 2222 tunnel.o2obox.kr
+
+# 재시작
+sudo systemctl restart reversessh.service
 ```
 
 ---
