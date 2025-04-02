@@ -156,6 +156,81 @@ sudo systemctl is-enabled reversessh.service
 
 <br>
 
+#### 서비스 만든 후 안될 경우
+
+```
+sudo systemctl start reversessh.service
+
+sudo systemctl status reversessh.service
+```
+
+#### 1. knownhosts 제거
+```
+cd ~/.ssh
+
+sudo nano known_hosts
+
+# 서버 재연결로 knownhosts 추가
+ssh -p 2222 root@smart.apple-box.kr
+```
+
+#### 2. 로그파일 권한 부여
+```
+./reversesshservice.sh 실행 해보고 오류 확인
+
+ls -l /home/pi/reversessh.log
+
+sudo chmod 666 /home/pi/reversessh.log
+```
+
+#### RSA root 키 복사
+```
+sudo mkdir -p /root/.ssh
+
+sudo chmod 700 /root/.ssh
+```
+
+- mkdir -p /root/.ssh → .ssh 폴더가 없으면 생성
+
+- chmod 700 /root/.ssh → root만 접근 가능하도록 권한 설정
+
+```
+# pi 계정의 SSH 키를 root 계정으로 복사
+
+sudo cp /home/pi/.ssh/id_rsa /root/.ssh/id_rsa
+
+sudo cp /home/pi/.ssh/id_rsa.pub /root/.ssh/id_rsa.pub
+```
+
+```
+sudo chmod 600 /root/.ssh/id_rsa
+
+sudo chmod 644 /root/.ssh/id_rsa.pub
+```
+
+- chmod 600 id_rsa → 개인 키는 root만 읽고 쓸 수 있도록 설정
+
+- chmod 644 id_rsa.pub → 공개 키는 읽기 가능
+
+#### 설정 확인
+```
+sudo ls -l /root/.ssh/
+
+-rw------- 1 root root  3243  4월  2 12:34 id_rsa
+-rw-r--r-- 1 root root   745  4월  2 12:34 id_rsa.pub
+```
+
+#### 안되면 기존 키 삭제 후 변경
+```
+sudo ssh-keygen -f "/root/.ssh/known_hosts" -R "[smart.apple-box.kr]:2222"
+```
+
+#### 다시 접속시도
+```
+sudo ssh -i /root/.ssh/id_rsa -p 2222 smart.apple-box.kr
+```
+
+---
 #### 시스템 재실행시 reversesshservice.sh 실행 가능 옵션
 
 ```
