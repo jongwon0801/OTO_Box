@@ -183,7 +183,7 @@ ls -l /home/pi/reversessh.log
 sudo chmod 666 /home/pi/reversessh.log
 ```
 
-#### RSA root 키 복사
+#### 3. RSA root 키 복사
 ```
 sudo mkdir -p /root/.ssh
 
@@ -212,7 +212,7 @@ sudo chmod 644 /root/.ssh/id_rsa.pub
 
 - chmod 644 id_rsa.pub → 공개 키는 읽기 가능
 
-#### 설정 확인
+#### 4. 설정 확인
 ```
 sudo ls -l /root/.ssh/
 
@@ -220,12 +220,12 @@ sudo ls -l /root/.ssh/
 -rw-r--r-- 1 root root   745  4월  2 12:34 id_rsa.pub
 ```
 
-#### 안되면 기존 키 삭제 후 변경
+#### 5. 안되면 기존 키 삭제 후 변경
 ```
 sudo ssh-keygen -f "/root/.ssh/known_hosts" -R "[smart.apple-box.kr]:2222"
 ```
 
-#### 다시 접속시도
+#### 6. 다시 접속시도
 ```
 sudo ssh -i /root/.ssh/id_rsa -p 2222 smart.apple-box.kr
 ```
