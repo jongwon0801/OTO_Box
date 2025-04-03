@@ -1,0 +1,44 @@
+🔹 명령어 분석
+
+```
+ssh -i /root/.ssh/id_rsa \
+    -o StrictHostKeyChecking=no \
+    -o ConnectTimeout=10 \
+    -f -N \
+    -R 127.0.0.1:$port:localhost:22 \
+    -p 2222 root@o2obox-tunnel
+```
+
+| 옵션                         | 설명 |
+|------------------------------|----------------------------------------------|
+| `-i /root/.ssh/id_rsa`       | `/root/.ssh/id_rsa` 개인키를 사용하여 SSH 접속 |
+| `-o StrictHostKeyChecking=no` | 호스트 키 확인을 비활성화 (보안 경고 무시) |
+| `-o ConnectTimeout=10`       | 연결 시간 초과를 10초로 설정 |
+| `-f`                         | SSH 프로세스를 백그라운드에서 실행 |
+| `-N`                         | 원격 명령을 실행하지 않고 포트 포워딩만 수행 |
+| `-R 127.0.0.1:$port:localhost:22` | 원격 포트 포워딩 설정 |
+| `-p 2222`                    | `o2obox-tunnel` 서버의 SSH 포트를 2222번으로 지정 |
+| `root@o2obox-tunnel`         | SSH 접속할 원격 서버 (`o2obox-tunnel`) |
+
+
+🔹 Reverse SSH 동작 방식
+
+라즈베리파이에서 실행하는 명령어
+
+o2obox-tunnel 서버(원격 서버)에서 $port 포트로 접속하면 라즈베리파이의 22번 포트(SSH)로 연결
+
+즉, 서버에서 ssh -p $port 127.0.0.1 하면 라즈베리파이로 SSH 접속할 수 있음.
+
+```less
+-R 127.0.0.1:$port:localhost:22
+
+원격 포트 포워딩을 설정
+
+-R [원격 서버 IP]:[원격 서버 포트]:[로컬 IP]:[로컬 포트]
+
+-R 127.0.0.1:$port:localhost:22
+```
+
+
+
+
