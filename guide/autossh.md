@@ -22,12 +22,11 @@ curl -v -X GET --header "Host: applebox-$1.apple-box.kr"  "http://smart.apple-bo
 
 보통 AutosshStart, AutosshStop 같은 API 요청 받을 때 씀
 
-
 ```less
 ss -tulnp | grep 11040
 tcp    LISTEN     0      128    127.0.0.1:11040     *:*    users:(("sshd",pid=xxxxx))
 ```
-
+---
 
 ② 41040 — Pi에서 reverse SSH로 터널링한 포트
 ssh -R 41040:localhost:22 root@smart.apple-box.kr
