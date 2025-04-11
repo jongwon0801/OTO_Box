@@ -1,4 +1,7 @@
-
+#### 라즈베리파이에서 접속 api 요청 받은 후
+```
+ssh -p 2222 -R 41040:localhost:22 root@smart.apple-box.kr
+```
 #### startssh.sh
 ```less
 
