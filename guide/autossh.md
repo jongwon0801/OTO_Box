@@ -22,10 +22,12 @@ curl -v -X GET --header "Host: applebox-$1.apple-box.kr"  "http://smart.apple-bo
 
 보통 AutosshStart, AutosshStop 같은 API 요청 받을 때 씀
 
+
 ```less
 ss -tulnp | grep 11040
 tcp    LISTEN     0      128    127.0.0.1:11040     *:*    users:(("sshd",pid=xxxxx))
 ```
+
 
 ② 41040 — Pi에서 reverse SSH로 터널링한 포트
 ssh -R 41040:localhost:22 root@smart.apple-box.kr
@@ -40,10 +42,14 @@ ssh -R 41040:localhost:22 root@smart.apple-box.kr
 실제로는 라즈베리파이의 SSH 포트로 연결됨
 
 
+
+
 | 포트   | 역할                              | 열려있는 위치     | 용도                                      |
 |--------|-----------------------------------|-------------------|-------------------------------------------|
 | 11040  | API listen 포트 (ex. AutosshStart 요청용) | 서버              | 웹 요청 처리                              |
 | 41040  | reverse SSH 터널 포트             | 서버 (역으로 Pi가 열어줌) | 서버가 Pi에 SSH로 접속할 수 있게 해줌    |
+
+
 
 
 예시 흐름 (자동 연결 과정)
