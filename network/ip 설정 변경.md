@@ -5,6 +5,17 @@
 /etc/ssh
 ~/.ssh/config 처럼 사용자 개별이 아닌, 시스템 전체에 적용되는 설정
 
+/etc/ssh/ssh_config      # 클라이언트용 (전체 사용자 공통)
+주의: 이건 ssh 클라이언트 설정이야. sshd_config는 서버 설정이니까 다름!
+```
+```less
+Host o2obox-tunnel
+    HostName smart.apple-box.kr
+    Port 2222
+    User pi
+    ServerAliveInterval 60
+    RemoteForward 11040 localhost:22
+
 ~/.ssh/config
 
 # iptable 조회
