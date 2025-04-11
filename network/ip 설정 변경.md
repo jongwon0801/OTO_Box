@@ -99,7 +99,9 @@ sudo iptables -D OUTPUT 2
 sudo iptables -L -n
 ```
 
+#### Pi에서 터널 연결 확인
+Pi에서 아래 명령으로 서버로 SSH 터널이 살아있는지 확인:
 
+ps aux | grep ssh
 
-
-
+sudo netstat -tnp | grep ssh
