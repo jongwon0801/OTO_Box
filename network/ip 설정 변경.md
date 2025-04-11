@@ -24,6 +24,7 @@ sudo nano /etc/resolv.conf
 # dns 추가 리부팅 안해도 바로반영됨
 nameserver 8.8.8.8
 nameserver 1.1.1.1
+#nameserver 127.0.0.1
 ```
 
 
