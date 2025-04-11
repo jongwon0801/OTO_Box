@@ -1,6 +1,7 @@
 
 #### startssh.sh
 ```less
+
 #echo $1
 #echo $2
 #cmd1=\'abcd$1\'
@@ -26,7 +27,10 @@ pkill -9 ssh
 
 #### 예성 202 RPI autossh shell
 
-```less#!/bin/bash
+```less
+# sshstart.sh
+
+#!/bin/bash
 #ssh -N -vvv o2obox-ssh &
 #autossh -M 0 -N o2obox-ssh
 if [[ ! -e /tmp/ssh_reverse.pid ]]; then   # Check if the file already exists
@@ -39,6 +43,8 @@ fi
 ```
 
 ```less
+sshstop.sh 
+
 #!/bin/bash
 
 if [[ -e /tmp/reverse_ssh.pid ]]; then   # If the file do not exists, then the
