@@ -14,6 +14,19 @@ sudo iptables -L -n
 /etc/ssh/sshd_config
 ```
 
+✅ 네트워크 연결 먼저 확인
+ping -c 3 8.8.8.8
+
+```
+DNS 설정 확인 (인터넷은 되는데 DNS가 안 될 때)
+sudo nano /etc/resolv.conf
+
+# dns 추가 리부팅 안해도 바로반영됨
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+```
+
+
 #### 아이비힐 (o2obox) pi@O2OBOX-11000:~ $ sudo iptables -L -n
 
 ```less
@@ -55,6 +68,35 @@ DROP   all -- 0.0.0.0/0 0.0.0.0/0
 클라이언트 쪽에서 iptables이 막고 있으니, 접속 자체가 DROP되는 상황
 ```
 
+✅ 해결 방법: 룰 번호로 삭제
+가장 쉬운 방법은 번호로 삭제
+```less
+sudo iptables -L INPUT --line-numbers -n
+sudo iptables -L OUTPUT --line-numbers -n
+```
+
+```less
+Chain INPUT (policy ACCEPT)
+num  target  prot opt source          destination
+1    ACCEPT  all  --  125.209.200.159 0.0.0.0/0
+2    DROP    all  --  0.0.0.0/0       0.0.0.0/0
+
+Chain OUTPUT (policy ACCEPT)
+num  target  prot opt source          destination
+1    ACCEPT  all  --  0.0.0.0/0       125.209.200.159
+2    DROP    all  --  0.0.0.0/0       0.0.0.0/0
+```
+
+🧹 DROP 룰 삭제 (예: 룰 번호가 2번일 때)
+```less
+# INPUT 체인에서 DROP (2번 룰) 삭제
+sudo iptables -D INPUT 2
+
+# OUTPUT 체인에서 DROP (2번 룰) 삭제
+sudo iptables -D OUTPUT 2
+
+sudo iptables -L -n
+```
 
 
 
