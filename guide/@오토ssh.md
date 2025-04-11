@@ -43,7 +43,7 @@ fi
 ```
 
 ```less
-sshstop.sh 
+# sshstop.sh 
 
 #!/bin/bash
 
