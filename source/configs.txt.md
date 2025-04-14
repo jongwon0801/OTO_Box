@@ -1,7 +1,7 @@
 
 
-# nano ~/.ssh/config
-
+#### nano ~/.ssh/config
+```less
 Host o2obox-ssh
 HostName      server
 User          root
@@ -13,11 +13,11 @@ ServerAliveInterval 300
 ServerAliveCountMax 2
 ExitOnForwardFailure yes
 TCPKeepAlive yes
+```
 
+#### nano /etc/ssh/sshd_config
 
-# nano /etc/ssh/sshd_config
-
-
+```less
 Port 22
 AddressFamily any
 ListenAddress 0.0.0.0
@@ -94,3 +94,4 @@ Banner none
 AcceptEnv LANG LC_*
 
 Subsystem sftp /usr/lib/openssh/sftp-server
+```
