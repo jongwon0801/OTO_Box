@@ -1,4 +1,4 @@
-####  /etc/nginx/sites-available/default
+####  /etc/nginx/sites-available/default  (라즈베리파이)
 
 ```less
 server {
