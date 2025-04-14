@@ -1,5 +1,5 @@
-# /etc/nginx/conf.d/smart.conf
-
+#### /etc/nginx/conf.d/smart.conf
+```less
 server {
   listen   80;
   server_name server smart.apple-box.kr 61.97.191.242;
@@ -21,3 +21,4 @@ proxy_pass_request_headers on;
        proxy_redirect off;
   }
 }
+```
