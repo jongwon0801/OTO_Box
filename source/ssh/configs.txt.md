@@ -1,6 +1,6 @@
 
 
-#### nano ~/.ssh/config
+#### nano ~/.ssh/config (사용자별)
 ```less
 Host o2obox-ssh
 HostName      server
@@ -15,7 +15,7 @@ ExitOnForwardFailure yes
 TCPKeepAlive yes
 ```
 
-#### nano /etc/ssh/sshd_config
+#### nano /etc/ssh/sshd_config (전역변수)
 
 ```less
 Port 22
