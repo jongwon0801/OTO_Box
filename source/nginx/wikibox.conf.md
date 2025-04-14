@@ -1,4 +1,4 @@
-#### /etc/nginx/conf.d/wikibox.conf
+#### /etc/nginx/conf.d/wikibox.conf (서버)
 
 ```less
 server {
