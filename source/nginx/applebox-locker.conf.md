@@ -1,4 +1,4 @@
-#### /etc/nginx/conf.d/applebox-locker.conf
+#### /etc/nginx/conf.d/applebox-locker.conf (서버)
 
 
 #### startssh.sh
