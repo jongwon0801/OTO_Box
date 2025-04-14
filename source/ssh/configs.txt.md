@@ -1,7 +1,9 @@
 
+#### 11010 예성202
 
-#### nano ~/.ssh/config (사용자별)
 ```less
+nano ~/.ssh/config (사용자별)
+
 Host o2obox-ssh
 HostName      server
 User          root
@@ -14,6 +16,26 @@ ServerAliveCountMax 2
 ExitOnForwardFailure yes
 TCPKeepAlive yes
 ```
+
+#### 11040 정은 b
+
+```less
+nano ~/.ssh/config (사용자별)
+
+Host o2obox-ssh
+HostName      tunnel.o2obox.kr
+User          root
+Port          2222
+IdentityFile  /home/pi/.ssh/id_rsa
+#RemoteForward  10000 localhost:8000
+RemoteForward 41040  localhost:22
+ServerAliveInterval 300
+ServerAliveCountMax 2
+ExitOnForwardFailure yes
+TCPKeepAlive yes
+```
+
+
 
 #### nano /etc/ssh/sshd_config (전역변수)
 
