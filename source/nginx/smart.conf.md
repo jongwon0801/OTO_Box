@@ -1,4 +1,4 @@
-#### /etc/nginx/conf.d/smart.conf
+#### /etc/nginx/conf.d/smart.conf (서버)
 ```less
 server {
   listen   80;
