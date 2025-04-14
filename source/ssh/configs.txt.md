@@ -119,7 +119,12 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 ```
 
 #### 11000 아이비힐
+```
+(o2obox) pi@O2OBOX-11000:~/.ssh $ ls
+id_rsa  id_rsa.pub  known_hosts
+```
 
+#### /etc/ssh/sshd_config
 ```less
 Port 22
 Protocol 2
