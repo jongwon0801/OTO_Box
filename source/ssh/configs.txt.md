@@ -18,6 +18,10 @@ TCPKeepAlive yes
 ```
 
 #### 11040 정은 b
+```
+pi@O2OBOX-11040:~/.ssh $ ls
+authorized_keys  id_rsa  id_rsa.pub  known_hosts  known_hosts.old
+```
 
 ```less
 nano ~/.ssh/config (사용자별)
