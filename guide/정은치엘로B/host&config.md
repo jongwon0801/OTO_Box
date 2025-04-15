@@ -13,6 +13,42 @@ ff02::2		ip6-allrouters
 125.209.200.159 o2obox-tunnel 
 ```
 
+
+```less
+# 기존 서비스 중지
+sudo systemctl stop reversessh.service
+
+# 기존 심볼릭 링크 제거
+sudo rm /etc/systemd/system/multi-user.target.wants/reversessh.service
+
+# reversesshservice.sh 수정 후 캐시 갱신
+sudo systemctl daemon-reload
+
+# 다시 enable 실행
+sudo systemctl enable reversessh.service
+
+sudo systemctl start reversessh.service
+
+sudo systemctl status reversessh.service
+```
+
+
+```less
+# sudo nano /lib/systemd/system/reversessh.service
+
+[Unit]
+Description=Reverse SSH Service
+After=network.target
+
+[Service]
+Type=idle
+ExecStart=/bin/sh /home/pi/reversesshservice.sh
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
 ```less
 # cat ~/.ssh/config 
 
@@ -63,6 +99,7 @@ Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
 Chain OUTPUT (policy ACCEPT 47232 packets, 7059K bytes)
  pkts bytes target     prot opt in     out     source               destination 
 ```
+
 
 ```less
 # cat /etc/ssh/sshd_config
