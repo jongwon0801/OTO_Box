@@ -98,6 +98,7 @@ while true; do
         fi
 
         # 3번 시도 이후에만 프로세스 확인해서 중단
+        # ssh 연결 시도 계속 x -> 리소스 낭비 줄임
         if [ "$attempts11040" -ge "$max_attempts" ] || [ -n "$pid11040" ] || [ -n "$pid41040" ]; then
             if [ -n "$pid11040" ] || [ -n "$pid41040" ]; then
                 log "SSH tunnel already running for either port 11040 or 41040 (PID11040: $pid11040, PID41040: $pid41040), skipping further attempts"
