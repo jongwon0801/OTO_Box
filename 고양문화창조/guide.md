@@ -15,7 +15,7 @@ pw : tmshdnxmfl (스노우트리)
 ```
 
 ```bash
-# 11048 접속
+# 11048 접속 / 고양문화창조허브 1
 ./startssh.sh 11048
 
 # 패스워드 tmshdnxmfl 입력
@@ -24,7 +24,7 @@ date
 ```
 
 ```bash
-# 11047 접속
+# 11047 접속 / 고양문화창조허브 2
 ./startssh.sh 11047
 
 # 패스워드 tmshdnxmfl 입력
