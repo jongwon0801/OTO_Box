@@ -23,6 +23,9 @@ pi@O2OBOX-11040:~/.ssh $ ls
 authorized_keys  id_rsa  id_rsa.pub  known_hosts  known_hosts.old
 ```
 
+- AllowTcpForwarding yes
+- GatewayPorts yes  # ← 이게 핵심!
+
 ```less
 nano ~/.ssh/config (사용자별)
 
@@ -94,7 +97,7 @@ UsePAM yes
 
 AllowAgentForwarding yes
 AllowTcpForwarding yes
-GatewayPorts no
+GatewayPorts yes
 X11Forwarding yes
 X11DisplayOffset 10
 X11UseLocalhost yes
