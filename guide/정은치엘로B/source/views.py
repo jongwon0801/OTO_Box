@@ -69,7 +69,7 @@ def index(request):
 
 def api(request):
     hostname = os.uname()[1]
-    yid = 10000
+    yid = 11040
     try:
         # '-'로 분할된 두 번째 요소를 가져옴
         yid = int(hostname.split('-')[1])  
