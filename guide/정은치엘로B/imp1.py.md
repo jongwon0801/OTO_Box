@@ -61,6 +61,7 @@ def run():
 
     # 모델에 없는 필드 제거
     cvalues.pop('qrcodeFlag', None)
+    cvalues.pop('parcelFlag', None)
 
     cvalues['addr'] = json.dumps(cvalues['addr'])
     applebox = Applebox(**cvalues)
@@ -79,6 +80,7 @@ if __name__ == '__main__':
     from applebox.models import Applebox, Locker, Property
     run()
 
+
 ```
 
 🔍 imp1.py가 하는 일 요약
@@ -95,7 +97,7 @@ if __name__ == '__main__':
 3. appleapp 설정을 로드하여 Django ORM 사용
 
 📍 imp1.py 수정 예시
-run() 함수 안에서 cvalues = data['applebox'] 이후에 아래 한 줄 추가
+1. run() 함수 안에서 cvalues = data['applebox'] 이후에 아래 한 줄 추가
 ```less
 cvalues.pop('qrcodeFlag', None)
 ```
@@ -109,7 +111,7 @@ applebox = Applebox(**cvalues)
 ```
 이러면 qrcodeFlag는 무시되고, 모델에 정의된 필드만 사용하게 됩니다
 
+2. parcelFlag 필드도 마찬가지로 Applebox 모델에 존재하지 않는 필드
 
-
-
+parcelFlag 필드를 cvalues에서 제거
 
