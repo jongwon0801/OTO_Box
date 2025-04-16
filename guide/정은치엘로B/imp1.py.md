@@ -3,6 +3,8 @@
 ls -l /home/pi/Workspace/appleapp/applelocker/imp1.py
 
 cat /home/pi/Workspace/appleapp/applelocker/imp1.py
+
+sudo nano /home/pi/Workspace/appleapp/applelocker/imp1.py
 ```
 
 ```less
