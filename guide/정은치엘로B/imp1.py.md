@@ -111,6 +111,11 @@ cvalues = data['applebox'] 이후 추가
 cvalues.pop('qrcodeFlag', None)
 cvalues.pop('parcelFlag', None)
 cvalues.pop('laundryFlag', None)
+cvalues.pop('useType', None)
+
+# 모델에 없는 'toHo' 필드 제거
+box.pop('toHo', None)
+box.pop('toDong', None)
 ```
 
 
