@@ -64,6 +64,8 @@ def run():
     # 모델에 없는 필드 제거
     cvalues.pop('qrcodeFlag', None)
     cvalues.pop('parcelFlag', None)
+    cvalues.pop('laundryFlag', None)
+    cvalues.pop('useType', None)
 
     cvalues['addr'] = json.dumps(cvalues['addr'])
     applebox = Applebox(**cvalues)
@@ -73,6 +75,10 @@ def run():
     for item in list:
         boxes = item['box']
         for box in boxes:
+            # 모델에 없는 'toHo'와 'toDong' 필드 제거
+            box.pop('toHo', None)
+            box.pop('toDong', None)
+
             locker = Locker(**box)
             print(model_to_dict(locker))
             locker.save()
@@ -81,8 +87,6 @@ if __name__ == '__main__':
     django.setup()
     from applebox.models import Applebox, Locker, Property
     run()
-
-
 ```
 
 🔍 imp1.py가 하는 일 요약
