@@ -53,6 +53,23 @@ sudo nano /etc/default/hostapd
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 ```
 
+2-1 AP모드 와이파이 비번 변경
+
+```less
+sudo nano /etc/hostapd/hostapd.conf
+
+# 비밀번호 설정 외 다른 설정도 주석처리 해제
+wpa_passphrase=현재비밀번호
+
+# hostapd 재시작
+sudo systemctl restart hostapd
+
+# 전체 네트워크 서비스까지 재시작
+sudo systemctl restart dnsmasq
+sudo systemctl restart dhcpcd
+
+```
+
 3. dnsmasq 설정 (DHCP 서버 설정)
 
 dnsmasq는 IP 주소를 클라이언트에게 할당하는 DHCP 서버 역할을 합니다.
