@@ -111,6 +111,17 @@ if __name__ == '__main__':
     run()
 ```
 
+🔍 imp1.py가 하는 일 요약
 
+1. 서버에서 해당 yid에 대한 Applebox 데이터와 Locker 데이터 받아오기
+(REST API 호출: http://smart.apple-box.kr:3000/v1/AppleboxAll/{yid})
+
+2. 받은 JSON 데이터를 Django 모델 (Applebox, Locker)로 저장
+
+- 기존 DB 내용은 Applebox, Locker 모두 삭제하고 초기화
+
+- 새 데이터로 다시 삽입
+
+3. appleapp 설정을 로드하여 Django ORM 사용
 
 
