@@ -51,7 +51,12 @@ Python 스크립트 실행:
 imp1.py 스크립트로 DB나 추가 설정 작업 수행.
 ```
 
+#### 실행방법
 
+```less
+chmod +x install.sh
+sudo ./install.sh 11040 lte
+```
 
 
 
