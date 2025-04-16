@@ -2,6 +2,7 @@
 
 # MARKDOWN_DEUX_STYLES 관련 설정은 제거하거나 주석 처리했습니다.
 
+# /home/pi/Workspace/appleapp/appleapp/settings.py
 
 """
 Django settings for appleapp project.
