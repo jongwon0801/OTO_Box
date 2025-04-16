@@ -94,4 +94,22 @@ if __name__ == '__main__':
 
 3. appleapp 설정을 로드하여 Django ORM 사용
 
+📍 imp1.py 수정 예시
+run() 함수 안에서 cvalues = data['applebox'] 이후에 아래 한 줄 추가
+```less
+cvalues.pop('qrcodeFlag', None)
+```
+
+#### 전체흐름
+```less
+cvalues = data['applebox']
+cvalues.pop('qrcodeFlag', None)  # 여기가 핵심!
+cvalues['addr'] = json.dumps(cvalues['addr'])
+applebox = Applebox(**cvalues)
+```
+이러면 qrcodeFlag는 무시되고, 모델에 정의된 필드만 사용하게 됩니다
+
+
+
+
 
