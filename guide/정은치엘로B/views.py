@@ -54,18 +54,36 @@ def index(request):
     version = 3.0
     return HttpResponse("Welcome to %s:%s" % (applebox.name, version))
 
+# def api(request):
+#     hostname = os.uname()[1]
+#     yid = 10000
+#     try:
+#         yid = int(hostname.split('-')[1])
+#     except:
+#         pass
+#     return render(request, 'o2obox.yaml', {
+#         'hostname': hostname,
+#         'yid': yid,
+#         'version': '1.0.0'
+#     }, content_type='application/yaml')
+
 def api(request):
     hostname = os.uname()[1]
     yid = 10000
     try:
-        yid = int(hostname.split('-')[1])
-    except:
-        pass
+        # '-'로 분할된 두 번째 요소를 가져옴
+        yid = int(hostname.split('-')[1])  
+    except IndexError:  # '-'가 없을 경우 예외 처리
+        pass  # 예외 발생 시 기본값 사용
+    except ValueError:  # 숫자로 변환할 수 없는 경우 예외 처리
+        pass  # 예외 발생 시 기본값 사용
+
     return render(request, 'o2obox.yaml', {
         'hostname': hostname,
         'yid': yid,
         'version': '1.0.0'
     }, content_type='application/yaml')
+
 
 def error404(request):
     return HttpResponseServerError('1111')
