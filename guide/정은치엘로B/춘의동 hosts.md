@@ -62,6 +62,27 @@ Host o2obox-vnc
   StrictHostKeyChecking no
 ```
 
+#### /etc/hosts
+```less
+# /etc/hosts
+
+127.0.0.1       localhost
+::1             localhost ip6-localhost ip6-loopback
+ff02::1         ip6-allnodes
+ff02::2         ip6-allrouters
+
+127.0.1.1               raspberrypi
+127.0.0.1 O2OBOX-11013
+
+125.209.200.159 vpnserver
+10.100.80.100 homeserver
+125.209.200.159 server
+```
+
+
+
+
+
 
 
 
