@@ -49,6 +49,7 @@ WantedBy=multi-user.target
 ```
 
 
+#### pi 사용자 config
 ```less
 # cat ~/.ssh/config 
 
@@ -65,6 +66,20 @@ ExitOnForwardFailure yes
 TCPKeepAlive yes
 ```
 
+#### root 사용자 config
+```less
+Host o2obox-tunnel
+HostName      tunnel.o2obox.kr
+User          root
+Port          2222
+IdentityFile  /home/pi/.ssh/id_rsa
+RemoteForward  11040 localhost:8000
+#RemoteForward  40000 localhost:22
+ServerAliveInterval 300
+ServerAliveCountMax 2
+ExitOnForwardFailure yes
+TCPKeepAlive yes
+```
 
 ```less
 # cat /etc/ssh/ssh_config
