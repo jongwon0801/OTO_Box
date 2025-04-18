@@ -1,6 +1,14 @@
 #### install.sh
 
 ```less
+# 주석 제거 -> 서버 이외의 인터넷 접속 제한
+install.sh 11040 lte
+
+# 주석 추가 -> 인터넷 제한 X
+install.sh 11040 wifi
+```
+
+```less
 #!/bin/bash
 
 # 인자 개수가 2개 미만이면 에러 메시지 출력 후 종료
