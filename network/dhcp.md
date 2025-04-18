@@ -23,7 +23,7 @@ Alias=dhcpcd5.service
 2. dnsmasq 서비스 (DHCP + DNS 서버)
 
 ```less
-/etc/systemd/system/multi-user.target.wants/dhcpcd.service
+/etc/systemd/system/multi-user.target.wants/dnsmasq.service
 
 [Unit]
 Description=dnsmasq - A lightweight DHCP and caching DNS server
