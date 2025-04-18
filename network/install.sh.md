@@ -48,7 +48,23 @@ cd /home/pi/Workspace/appleapp/applelocker
 
 ```
 
+🔧 스크립트 전체 요약
 
+$1 = ID 값 (예: 10000)
+
+$2 = 접속 모드 (lte 또는 다른 것)
+
+ID 기반으로
+
+- iptables 설정 파일 제어
+
+- 호스트 이름 변경
+
+- SSH reverse tunnel 포트 설정
+
+- hostapd SSID 변경
+
+- 파이썬 스크립트 실행
 
 
 
