@@ -40,8 +40,8 @@ KERNEL=="ttyS0", PROGRAM="/bin/sh -c '\
 ```
 SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001",
 
+# 정은치엘로는 이건 안써도됨
 ATTRS{serial}=="AK3RPJDG", SYMLINK+="hunes"
-
 ```
 
 
