@@ -54,5 +54,62 @@ iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 #iptables -A INPUT -i eth0 -j DROP
 ```
 
+```less
+# /etc/systemd/system/hs-iptables.service
+
+[Unit]
+Description=Activate IPtables for Hotspot
+After=network-pre.target
+Before=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/etc/iptables-hs
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```less
+sudo systemctl daemon-reload
+
+# 서비스 enable 시 심링크 생성됨
+sudo systemctl enable hs-iptables.service
+
+sudo systemctl start hs-iptables.service
+
+sudo systemctl status hs-iptables.service
+
+Active: inactive (dead):
+
+Type=simple + 명령어가 금방 끝나는 구조이기 때문에,
+
+iptables 명령만 실행하고 종료되었음 (정상임)
+
+status=0/SUCCESS: 성공적으로 실행되었단 뜻! 문제 없음
+```
 
 
+```less
+# /etc/systemd/system/multi-user.target.wants/hs-iptables.service
+
+[Unit]
+Description=Activate IPtables for Hotspot          # 서비스 설명
+After=network-pre.target                           # 네트워크 초기화 이전에 실행되면 안 됨
+Before=network-online.target                       # 네트워크가 완전히 연결되기 전에 실행되어야 함
+
+[Service]
+Type=simple                                         # 단순한 실행형 서비스 (백그라운드로 계속 안 돌고, 한번 실행)
+ExecStart=/etc/iptables-hs                         # 실행할 스크립트 경로 (/etc/iptables-hs)
+
+[Install]
+WantedBy=multi-user.target                         # 일반 사용자 환경 진입할 때 실행됨
+```
+
+✅ .service 파일을 /etc/systemd/system/에 만든 경우
+
+systemd는 기본적으로 아래 경로들을 다 검색해:
+
+/lib/systemd/system/ (패키지 설치 시 기본 위치)
+
+/etc/systemd/system/ (사용자가 직접 만든 커스텀 서비스 위치)
