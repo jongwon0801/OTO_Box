@@ -36,4 +36,12 @@ KERNEL=="ttyS0", PROGRAM="/bin/sh -c '\
 '", SYMLINK+="serial%c"
 ```
 
+#### 참고
+```
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001",
+
+ATTRS{serial}=="AK3RPJDG", SYMLINK+="hunes"
+
+```
+
 
