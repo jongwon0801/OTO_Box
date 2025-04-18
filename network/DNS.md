@@ -53,13 +53,12 @@ DROP       all  --  eth0   *       0.0.0.0/0            0.0.0.0/0
 ```
 
 iptables 규칙 초기화 (일단 다 허용)
-
+```less
 sudo iptables -F
 sudo iptables -X
 sudo iptables -t nat -F
 sudo iptables -t nat -X
-
-
+```
 
 
 
