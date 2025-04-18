@@ -107,9 +107,10 @@ WantedBy=multi-user.target                         # 일반 사용자 환경 진
 ```
 
 ✅ .service 파일을 /etc/systemd/system/에 만든 경우
-
+```less
 systemd는 기본적으로 아래 경로들을 다 검색해:
 
 /lib/systemd/system/ (패키지 설치 시 기본 위치)
 
 /etc/systemd/system/ (사용자가 직접 만든 커스텀 서비스 위치)
+```
