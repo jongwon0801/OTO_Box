@@ -241,21 +241,19 @@ sudo systemctl restart reversessh.service
 
 #### lsof -> ss ,호스트키 변경 방지 수정 reversesshservice.sh
 ```
-serverProcessKill(){
+serverProcessKill() {
     export IFS="-"
     sentence="$(hostname)"
 
     for word in $sentence; do
-      yid="$word"
+        yid="$word"
     done
 
-    # ss 명령어를 사용하여 TCP 포트에서 프로세스 ID를 찾고 종료합니다.
-    pid=$(ss -tuln | grep ":$yid" | awk '{print $6}' | cut -d',' -f2)
-    
-    if [ -n "$pid" ]; then
-        echo "kill -9 $pid" | su - pi && ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -T -p 2222 root@server
+    if [ -n "$yid" ]; then
+        echo "Trying to kill process using port $yid on server..."
+        ssh -T -p 2222 root@server "kill -9 \$(lsof -ti tcp:$yid) || echo 'No process found using port $yid'"
     else
-        echo "No process found for port $yid"
+        echo "Invalid port extracted from hostname."
     fi
 }
 
