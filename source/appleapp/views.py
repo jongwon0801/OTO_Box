@@ -1,4 +1,4 @@
-# /home/pi/Workspace/newapp/appleapp/views.py
+# /home/pi/Workspace/newapp/appleapp/views.py  (춘의동 11013)
 
 # -*- coding: UTF-8 -*-
 
