@@ -21,26 +21,64 @@ url(r'^AutosshStart/(?P<outport>[0-9]+)/(?P<inport>\w+)$', views.AutosshStart, n
 ```less
 /home/pi/Workspace/newapp/applebox/views.py
 
-def AutosshStart(request,outport,inport):
-    #ssh -o -N o2obox-tunnel
-    #autossh -M 0 -o ServerAliveInterval=300 -R 42422:localhost:8000 root@125.209.200.159 -p 2222
-
-    process = subprocess.Popen(['/home/pi/reversessh.sh',"start", outport,inport],stdin=subprocess.PIPE,
-                        stdout=subprocess.PIPE,
-                        stderr=subprocess.PIPE,shell=False)
-
-    #process.stdin.write(b'tmshdnxmfl\n')
-    #process.stdin.flush()
-
-    #stdout, stderr = process.communicate()
-    #print(stdout)
-    #print(stderr)
-    #out = process.communicate()[0]
-    #print(out.decode())
+def AutosshStart(request, outport, inport):
+    process = subprocess.Popen(
+        ['/home/pi/reversessh.sh', "start", outport, inport],
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        shell=False
+    )
     return JsonResponse({'success': True})
-    #return JsonResponse({'success': True})
 
 def AutosshStop(request):
-    process = subprocess.Popen(['sh', '/home/pi/reversessh.sh','stop'])
+    process = subprocess.Popen(['sh', '/home/pi/reversessh.sh', 'stop'])
     return JsonResponse({'success': True})
+```
+
+```less
+#!/bin/bash
+NAME=reversessh
+DESC="reversessh to server"
+case "$1" in
+  start)
+    echo -n "Starting $DESC: "
+    echo "$NAME."
+    if [ ! -e /tmp/reverse_ssh.pid ]; then   # Check if the file already exists
+        #ssh -f -N -T -R40000:localhost:22 root@smart.zimcarry.net -p 2222&
+        ssh -N o2obox-ssh&
+        echo $! > /tmp/reverse_ssh.pid
+    else
+        echo -n "ERROR: The process is already running with pid "
+        cat /tmp/reverse_ssh.pid
+        kill `cat /tmp/reverse_ssh.pid`      #+the process is not running. Useless
+        rm /tmp/reverse_ssh.pid
+        ssh -N o2obox-ssh&
+        echo $! > /tmp/reverse_ssh.pid
+    fi
+
+    ;;
+  stop)
+    echo -n "Stopping $DESC: "
+    if [ -f /tmp/reverse_ssh.pid ]; then   # If the file do not exists, then the
+        kill `cat /tmp/reverse_ssh.pid`      #+the process is not running. Useless
+        rm /tmp/reverse_ssh.pid              #+trying to kill it.
+    else
+        echo "reverse ssh is not running"
+    fi
+    ;;
+  restart)
+    $0 stop
+    sleep 1
+
+    $0 start
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart}" >&2
+    exit 1
+    ;;
+
+esac
+
+exit 0
 ```
