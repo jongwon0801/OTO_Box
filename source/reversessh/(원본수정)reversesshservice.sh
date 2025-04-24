@@ -1,5 +1,5 @@
 #### lsof -> ss ,호스트키 변경 방지 수정 reversesshservice.sh
-```less
+
 serverProcessKill() {
     export IFS="-"
     sentence="$(hostname)"
@@ -89,4 +89,4 @@ while true; do
         fi
     fi
 done
-```
+
