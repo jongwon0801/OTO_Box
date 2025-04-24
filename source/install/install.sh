@@ -1,3 +1,4 @@
+# /home/pi/install.sh
 #!/bin/bash
 if [ "$#" -lt 2 ]; then
     echo "$# is Illegal number of parameters."
