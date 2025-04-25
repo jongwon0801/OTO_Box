@@ -36,6 +36,8 @@ def AutosshStop(request):
     return JsonResponse({'success': True})
 ```
 
+#### /home/pi/reversessh.sh
+
 ```less
 #!/bin/bash
 NAME=reversessh
