@@ -10,7 +10,7 @@ serverProcessKill() {
 
     if [ -n "$yid" ]; then
         echo "Trying to kill process using port $yid on server..."
-        ssh -T -p 2222 root@server "kill -9 \$(lsof -ti tcp:$yid) || echo 'No process found using port $yid'"
+        ssh -T -p 2222 root@server "sudo kill -9 \$(lsof -ti tcp:$yid) || echo 'No process found using port $yid'"
     else
         echo "Invalid port extracted from hostname."
     fi
