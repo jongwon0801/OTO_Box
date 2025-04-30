@@ -1,7 +1,7 @@
 # /home/pi/Workspace/newapp/applebox/views.py
 # appleapp에서 applebox를 import
 
-```less
+
 from django.http import JsonResponse
 import subprocess
 
@@ -30,4 +30,4 @@ def AutosshStop(request):
 
     return JsonResponse({'success': True})
 
-```
+
