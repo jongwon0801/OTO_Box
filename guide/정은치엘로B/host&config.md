@@ -49,7 +49,7 @@ WantedBy=multi-user.target
 ```
 
 
-#### pi 사용자 config
+#### o2obox-ssh config
 ```less
 # cat ~/.ssh/config 
 
@@ -66,7 +66,7 @@ ExitOnForwardFailure yes
 TCPKeepAlive yes
 ```
 
-#### root 사용자 config
+#### o2obox-tunnel config
 ```less
 Host o2obox-tunnel
 HostName      tunnel.o2obox.kr
