@@ -138,6 +138,7 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 
 
 🔎 부가 설명
+```less
 ChallengeResponseAuthentication no
 → 보통 OTP나 PAM 기반 인증을 막기 위해 비활성화합니다.
 
@@ -146,7 +147,7 @@ X11Forwarding yes
 
 UsePAM yes
 → PAM 인증을 통해 다양한 보안 정책 적용이 가능해 일반적으로 yes로 사용하지만, OpenSSH 기본은 no입니다.
-
+```
 
 
 
