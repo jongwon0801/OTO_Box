@@ -1,3 +1,6 @@
+# serverprocesskill 로직 삭제
+# #!/bin/sh 자동화 셸 쓸거면 꼭 써야함
+
 #!/bin/sh
 
 startSsh() {
