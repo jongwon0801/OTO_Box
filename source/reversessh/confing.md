@@ -49,7 +49,7 @@ HostName      server
 User          root
 Port          2222
 IdentityFile  /home/pi/.ssh/id_rsa
-#RemoteForward  10000 localhost:8000
+#RemoteForward  11045 localhost:8000
 RemoteForward  41045 localhost:22
 ServerAliveInterval 300
 ServerAliveCountMax 2
@@ -67,7 +67,7 @@ User          root
 Port          2222
 IdentityFile  /home/pi/.ssh/id_rsa
 RemoteForward  11045 localhost:8000
-#RemoteForward  40000 localhost:22
+#RemoteForward  41045 localhost:22
 ServerAliveInterval 300
 ServerAliveCountMax 2
 ExitOnForwardFailure yes
