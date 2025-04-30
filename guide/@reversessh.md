@@ -115,13 +115,16 @@ sudo systemctl status reversessh.service
 <br>
 2️⃣ 심볼릭 링크 확인 및 재생성 (만약 직접 수정하고 싶다면)
 
+```less
 - 심볼릭 링크가 올바르게 /lib/systemd/system/reversessh.service를 가리키는지 확인.
 ls -l /etc/systemd/system/multi-user.target.wants/reversessh.service
-
+```
 <br>
 
+```less
 만약 링크가 잘못되었거나 깨졌다면 수동으로 다시 생성
 sudo ln -s /lib/systemd/system/reversessh.service /etc/systemd/system/multi-user.target.wants/reversessh.service
+```
 <br>
 
 <br>
