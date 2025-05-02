@@ -1,3 +1,6 @@
+# /home/pi/Workspace/newapp/manage.py
+
+
 #!/usr/bin/env python
 import os
 import sys
