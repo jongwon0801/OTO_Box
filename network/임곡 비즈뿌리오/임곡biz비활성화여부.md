@@ -2,6 +2,18 @@
 ```less
 임곡 방제실 IP (119.207.102.191) , VPN 172.16.3.8
 121동 2열 유지보수 기간: 2023/05/31 ~ 2026/05/31 (2 제어)
+
+# 보관함 서버 접속
+ssh -p 2222 root@smart.apple-box.kr
+비밀번호 : tmshdnxmfl
+
+# 비즈뿌리오 모듈 활성화 여부
+ps aux | grep biz_client.jar | grep -v grep
+
+# 루트 크론탭 수정
+sudo crontab -e
+
+sudo crontab -e @reboot 주석
 ```
 
 #### ip현황
