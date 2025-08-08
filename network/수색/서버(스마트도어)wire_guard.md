@@ -12,7 +12,7 @@ server_public.key
 ZsWlsY81Fc2DHaOHjfQizwr32bk32SbAere3YIDbFH4=
 ```
 
-#### 클라이언트 비밀키 개인키
+#### 클라이언트(전시회문) 비밀키 개인키
 
 ```less
 # 클라이언트 비밀키
@@ -62,13 +62,32 @@ sudo sysctl -w net.ipv4.ip_forward=1
 영구 반영하려면 /etc/sysctl.conf에 net.ipv4.ip_forward=1 추가
 ```
 
+#### 서버 wg0.conf
+```less
+[Interface]
+Address = 10.0.0.1/32         # 서버 VPN 내부 IP
+ListenPort = 51820            # 기본 WireGuard 포트 (UDP)
+PrivateKey = iJeKJmenhVOXC4Oif/yIlZA+DoMLKeY/rsS60Ef+4lk=
 
+# 이후 클라이언트 연결할 때 [Peer] 섹션 추가
+[Peer]
+PublicKey = FSNL9nRwIW63v1TN9CC6r8ia+3XsPZpMY94gUK83uDc=
+AllowedIPs = 10.0.0.2/32
+```
 
+#### 클라이언트 wg0.conf
+```less
+[Interface]
+PrivateKey = MBhclr0aZ9vPTdJQJySHx8UhLZny9bds34CY4n6OOlM=    # 클라이언트_비밀키_내용
+Address = 10.0.0.2/32          # 클라이언트의 VPN 내부 IP (서버와 같은 대역)
+DNS = 8.8.8.8
 
-
-
-
-
+[Peer]
+PublicKey = ZsWlsY81Fc2DHaOHjfQizwr32bk32SbAere3YIDbFH4=    # 서버_공개키_내용
+Endpoint = 13.124.155.19:51820                            # 서버_퍼블릭_IP:51820
+AllowedIPs = 10.0.0.1/32
+PersistentKeepalive = 25
+```
 
 
 
