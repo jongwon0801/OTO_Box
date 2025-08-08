@@ -48,11 +48,19 @@ sudo systemctl enable wg-quick@wg0
 sudo systemctl start wg-quick@wg0
 ```
 
+#### IP 포워딩 활성화 확인
+```less
+sudo sysctl net.ipv4.ip_forward
+
+1이어야 정상 작동
+
+0이라면
+
+sudo sysctl -w net.ipv4.ip_forward=1
 
 
-
-
-
+영구 반영하려면 /etc/sysctl.conf에 net.ipv4.ip_forward=1 추가
+```
 
 
 
