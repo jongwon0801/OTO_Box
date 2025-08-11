@@ -1,15 +1,23 @@
-#### 스마트도어 서버(centos 설치안되서 여기다함) 13.124.155.19
+#### 1. 스마트도어 서버(centos 설치안되서 여기다함) 13.124.155.19
+
+#### 2. 스마트도어 서버 안되서 로컬서버로 변경 192.168.0.73
+
+```less
+ssh hizib@192.168.0.73
+
+pw : wikibox
+```
 
 ```less
 # 서버 비밀키
 server_private.key
 
-iJeKJmenhVOXC4Oif/yIlZA+DoMLKeY/rsS60Ef+4lk=
+uOr9984J6DVIMTtgA0kawtKcC7hr75/ohZh9d5cTIVI=
 
 # 서버 공개키 (클라이언트와 공유할 것)
 server_public.key
 
-ZsWlsY81Fc2DHaOHjfQizwr32bk32SbAere3YIDbFH4=
+LEeBQ70RtCepo5jtYwS+3ZgaDMxKH2+stp/20U+SWl8=
 ```
 
 #### 클라이언트(전시회문) 비밀키 개인키
@@ -94,12 +102,16 @@ sudo sysctl -w net.ipv4.ip_forward=1
 [Interface]
 Address = 10.0.0.1/24         # 서버 VPN 내부 IP
 ListenPort = 51820            # 기본 WireGuard 포트 (UDP)
-PrivateKey = iJeKJmenhVOXC4Oif/yIlZA+DoMLKeY/rsS60Ef+4lk=
+PrivateKey = uOr9984J6DVIMTtgA0kawtKcC7hr75/ohZh9d5cTIVI=       # 서버 개인키
 
 # 이후 클라이언트 연결할 때 [Peer] 섹션 추가
 [Peer]
-PublicKey = FSNL9nRwIW63v1TN9CC6r8ia+3XsPZpMY94gUK83uDc=
+PublicKey = FSNL9nRwIW63v1TN9CC6r8ia+3XsPZpMY94gUK83uDc=         # 클라이언트 공개키
 AllowedIPs = 10.0.0.2/32
+
+# [Peer]
+# PublicKey = FSNL9nRwIW63v1TN9CC6r8ia+3XsPZpMY94gUK83uDc=         # 클라이언트 공개키
+# AllowedIPs = 10.0.0.3/32
 ```
 
 #### 클라이언트 wg0.conf
@@ -110,7 +122,7 @@ Address = 10.0.0.2/32          # 클라이언트의 VPN 내부 IP (서버와 같
 DNS = 8.8.8.8
 
 [Peer]
-PublicKey = ZsWlsY81Fc2DHaOHjfQizwr32bk32SbAere3YIDbFH4=    # 서버_공개키_내용
+PublicKey = LEeBQ70RtCepo5jtYwS+3ZgaDMxKH2+stp/20U+SWl8=    # 서버_공개키_내용
 Endpoint = 13.124.155.19:51820                            # 서버_퍼블릭_IP:51820
 AllowedIPs = 10.0.0.1/32
 PersistentKeepalive = 25
