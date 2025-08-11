@@ -54,6 +54,9 @@ sudo wg-quick down wg0
 # 자동으로 부팅 시 WireGuard가 시작
 sudo systemctl enable wg-quick@wg0
 
+# 자동으로 부팅시 WireGuard가 안켜짐
+sudo systemctl disable wg-quick@wg0
+
 # wg-quick 서비스 상태 확인 (systemd 기반)
 sudo systemctl status wg-quick@wg0
 
