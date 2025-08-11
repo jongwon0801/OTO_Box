@@ -123,7 +123,7 @@ DNS = 8.8.8.8
 
 [Peer]
 PublicKey = LEeBQ70RtCepo5jtYwS+3ZgaDMxKH2+stp/20U+SWl8=    # 서버_공개키_내용
-Endpoint = 13.124.155.19:51820                            # 서버_퍼블릭_IP:51820
+Endpoint = 175.211.153.28:51820                            # 서버_퍼블릭_IP:51820
 AllowedIPs = 10.0.0.1/32
 PersistentKeepalive = 25
 ```
