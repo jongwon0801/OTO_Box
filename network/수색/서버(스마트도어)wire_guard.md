@@ -69,8 +69,10 @@ sudo systemctl start wg-quick@wg0
 # iptables 규칙확인
 sudo iptables -L -n -v
 
+# 서버로 들어오는 UDP 51820 포트 트래픽을 허용하는 방화벽 규칙을 추가
 sudo iptables -A INPUT -p udp --dport 51820 -j ACCEPT
 
+# 이전에 추가한 UDP 51820 허용 규칙을 삭제
 sudo iptables -D INPUT -p udp --dport 51820 -j ACCEPT
 
 # 서버 패킷 51820 포트로 받을준비
