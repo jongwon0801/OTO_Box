@@ -32,6 +32,8 @@ FSNL9nRwIW63v1TN9CC6r8ia+3XsPZpMY94gUK83uDc=
 # WireGuard 인터페이스 상태 확인
 sudo wg show
 
+ip addr show wg0
+
 # 프로세스 시작
 sudo wg-quick up wg0
 
@@ -39,6 +41,7 @@ sudo wg-quick up wg0
 sudo wg-quick down wg0
 ```
 
+#### system 프로세스 시작 중지
 ```less
 # 자동으로 부팅 시 WireGuard가 시작
 sudo systemctl enable wg-quick@wg0
@@ -53,9 +56,23 @@ sudo systemctl stop wg-quick@wg0
 sudo systemctl start wg-quick@wg0
 ```
 
+#### 패킷 보내기 테스트
 ```less
+# iptables 규칙확인
+sudo iptables -L -n -v
+
+sudo iptables -A INPUT -p udp --dport 51820 -j ACCEPT
+
+sudo iptables -D INPUT -p udp --dport 51820 -j ACCEPT
+
+# 서버 패킷 51820 포트로 받을준비
+sudo tcpdump -i any udp port 51820
+
+# 클라이언트 패킷 보내기 설치
 sudo apt update
 sudo apt install netcat
+
+echo "hello" | nc -u 13.124.155.19 51820
 ```
 
 #### IP 포워딩 활성화 확인
