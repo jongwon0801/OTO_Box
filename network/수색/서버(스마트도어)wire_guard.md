@@ -65,7 +65,7 @@ sudo sysctl -w net.ipv4.ip_forward=1
 #### 서버 wg0.conf
 ```less
 [Interface]
-Address = 10.0.0.1/32         # 서버 VPN 내부 IP
+Address = 10.0.0.1/24         # 서버 VPN 내부 IP
 ListenPort = 51820            # 기본 WireGuard 포트 (UDP)
 PrivateKey = iJeKJmenhVOXC4Oif/yIlZA+DoMLKeY/rsS60Ef+4lk=
 
