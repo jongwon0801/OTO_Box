@@ -111,12 +111,12 @@ PrivateKey = uOr9984J6DVIMTtgA0kawtKcC7hr75/ohZh9d5cTIVI=       # 서버 개인�
 PublicKey = FSNL9nRwIW63v1TN9CC6r8ia+3XsPZpMY94gUK83uDc=         # 클라이언트 공개키
 AllowedIPs = 10.0.0.2/32
 
-# [Peer]
+# [Peer] (수색 공개키 입력해야 함)
 # PublicKey = FSNL9nRwIW63v1TN9CC6r8ia+3XsPZpMY94gUK83uDc=         # 클라이언트 공개키
 # AllowedIPs = 10.0.0.3/32
 ```
 
-#### 클라이언트 wg0.conf
+#### 클라이언트 wg0.conf (수색 방제실 꺼로 Interface만 바꾸면 됨)
 ```less
 [Interface]
 PrivateKey = MBhclr0aZ9vPTdJQJySHx8UhLZny9bds34CY4n6OOlM=    # 클라이언트_비밀키_내용
