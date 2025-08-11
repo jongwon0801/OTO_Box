@@ -29,9 +29,6 @@ FSNL9nRwIW63v1TN9CC6r8ia+3XsPZpMY94gUK83uDc=
 #### 프로세스 상태 확인
 
 ```less
-# wg-quick 서비스 상태 확인 (systemd 기반)
-sudo systemctl status wg-quick@wg0
-
 # WireGuard 인터페이스 상태 확인
 sudo wg show
 
@@ -40,12 +37,25 @@ sudo wg-quick up wg0
 
 # 이미 프로세스 올라와있으면 내리기
 sudo wg-quick down wg0
+```
 
+```less
 # 자동으로 부팅 시 WireGuard가 시작
 sudo systemctl enable wg-quick@wg0
 
-# 서비스 수동 시작 시도
+# wg-quick 서비스 상태 확인 (systemd 기반)
+sudo systemctl status wg-quick@wg0
+
+# 서비스 중지
+sudo systemctl stop wg-quick@wg0
+
+# 서비스 시작
 sudo systemctl start wg-quick@wg0
+```
+
+```less
+sudo apt update
+sudo apt install netcat
 ```
 
 #### IP 포워딩 활성화 확인
