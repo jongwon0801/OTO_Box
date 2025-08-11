@@ -118,7 +118,7 @@ AllowedIPs = 10.0.0.2/32
 ```less
 [Interface]
 PrivateKey = MBhclr0aZ9vPTdJQJySHx8UhLZny9bds34CY4n6OOlM=    # 클라이언트_비밀키_내용
-Address = 10.0.0.2/32          # 클라이언트의 VPN 내부 IP (서버와 같은 대역)
+Address = 10.0.0.2/24          # 클라이언트의 VPN 내부 IP (서버와 같은 대역)
 DNS = 8.8.8.8
 
 [Peer]
