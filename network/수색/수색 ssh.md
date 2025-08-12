@@ -77,7 +77,24 @@ select ip from applebox;
 +---------------+
 ```
 
+#### 서버 ip
+```less
+10.100.80.100
 
+UDS_IP = biz.ppurio.com
+UDS_SEND_PORT = 18300
+UDS_RECV_PORT = 18400
+UDS_ID = applebox
+UDS_PW = wiki0800**
+USE_SSL = Y
+
+DBNAME = MYSQL
+
+DBURL = jdbc:mysql://10.100.80.100:3306/yellowbox?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+DBUSER = yellowbox
+DBPASS = dpfshdnqkrtm
+
+```
 
 
 #### 비즈뿌리오 경로
