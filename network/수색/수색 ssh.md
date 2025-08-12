@@ -111,6 +111,9 @@ dpkg -l | grep -i mysql
 
 # 보관함에서 서버접속
 mysql -h 10.100.80.100 -P 3306 -u yellowbox -p
+
+nc -zv 10.100.80.100 3306
+Connection to 10.100.80.100 3306 port [tcp/mysql] succeeded!
 ```
 
 
