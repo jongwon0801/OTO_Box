@@ -105,15 +105,25 @@ DBPASS = dpfshdnqkrtm
 
 ps -ef | grep "biz_client"
 ps aux | grep biz
+```
 
+#### 보관함에서 테스트
+```less
 # 보관함에서 myslq 설치 확인
 dpkg -l | grep -i mysql
 
 # 보관함에서 서버접속
 mysql -h 10.100.80.100 -P 3306 -u yellowbox -p
+pw : dpfshdnqkrtm
 
+# 포트 열려있는지 확인
 nc -zv 10.100.80.100 3306
 Connection to 10.100.80.100 3306 port [tcp/mysql] succeeded!
+
+# 서버 디비 인증 플러그 변경
+ALTER USER 'yellowbox'@'%' IDENTIFIED WITH mysql_native_password BY 'dpfshdnqkrtm';
+FLUSH PRIVILEGES;
+
 ```
 
 
