@@ -81,6 +81,9 @@ select ip from applebox;
 ```less
 10.100.80.100
 
+# 설정 파일들 nano로 열면 안보임
+# cat 으로 출력하면 보임
+
 UDS_IP = biz.ppurio.com
 UDS_SEND_PORT = 18300
 UDS_RECV_PORT = 18400
@@ -105,10 +108,17 @@ DBPASS = dpfshdnqkrtm
 
 ps -ef | grep "biz_client"
 ps aux | grep biz
+
 ```
 
 #### 보관함에서 테스트
 ```less
+# mysql 명령어 있는지 확인
+which mysql
+
+# mysql 상태확인
+systemctl status mysql
+
 # 보관함에서 myslq 설치 확인
 dpkg -l | grep -i mysql
 
